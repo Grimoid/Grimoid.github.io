@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        
+        <!--==================== SWIPER CSS====================-->
+        <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+
+        <!--==================== CSS ==========-->
+        <link rel="stylesheet" href="assets/css/styles.css">
+
+        <!--==================== UNICONS ====================-->
+        <link rel="stylesheet" href="https://unicons.iconscout.com/release/v3.0.6/css/line.css">
+        
+        <link rel="icon" href="assets/img/icon.png">
+        <title>Argyrios Gerogiannis</title>
+
+        <style>
+            a:link {
+               text-decoration: none;
+            }
+            a:visited {
+               text-decoration: none;
+            }
+            a:hover {
+               text-decoration: underline;
+            }
+            a:active {
+               text-decoration: underline;
+            }
+         </style>
+        <link rel="canonical" href="https://www.argyrger.com/" />
+    </head>
+    <body>
+        <!--==================== HEADER ====================-->
+        <header class="header" id="header">
+            <nav class="nav container">
+                <a href="#" class="nav__logo">Argy Gerogiannis</a>
+
+                <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list grid">
+                        <li class="nav__item">
+                            <a href="#home" class="nav__link active-link">
+                                <i class="uil uil-estate nav__icon"></i> Home/CV
+                            </a>
+                        </li>
+
+                        <li class="nav__item">
+                            <a href="#about" class="nav__link">
+                                <i class="uil uil-user nav__icon"></i> About
+                            </a>
+                        </li>
+
+                        <li class="nav__item">
+                            <a href="#services" class="nav__link">
+                                <i class="uil uil-scenery nav__icon"></i> Research
+                            </a>
+                        </li>
+
+                        <li class="nav__item">
+                            <a href="#univer" class="nav__link">
+                                <i class="uil uil-briefcase-alt nav__icon"></i> Education/Work
+                            </a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="#skills" class="nav__link">
+                                <i class="uil uil-file-alt nav__icon"></i> Skills
+                            </a>
+                        </li>
+
+
+
+                        <li class="nav__item">
+                            <a href="#contact" class="nav__link">
+                                <i class="uil uil-message nav__icon"></i> Contact
+                            </a>
+                        </li>
+
+                    </ul>
+                    
+                    <i class="uil uil-times nav__close" id="nav-close"></i>
+                </div>
+
+                <div class="nav__btns">
+                    <!-- Theme change button -->
+                    <i class="uil uil-moon change-theme" id="theme-button"></i>
+
+                    <div class="nav__toggle" id="nav-toggle">
+                        <i class="uil uil-apps"></i>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <!--==================== MAIN ====================-->
+        <main class="main">
+            <!--==================== HOME ====================-->
+            <section class="home section" id="home">
+                <div class="home__container container grid">
+                    <div class="home__content grid">
+                        <div class="home__social">
+                            <a href="mailto:argyrger@gmail.com" target="_blank" class="home__social-icon">
+                                <i class="uil uil-envelope-alt"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/argyrger/" target="_blank" class="home__social-icon">
+                                <i class="uil uil-linkedin-alt"></i>
+                            </a>
+    
+                            <a href="https://github.com/Grimoid" target="_blank" class="home__social-icon">
+                                <i class="uil uil-github-alt"></i>                            
+                            </a>
+                        </div>
+    
+                        <div class="home__img">
+                            <svg class="home__blob" viewBox="0 0 200 187">
+                                <mask id="mask0" mask-type="alpha">
+                                    <path d="M190.312 36.4879C206.582 62.1187 201.309 102.826 182.328 134.186C163.346 165.547 
+                                    130.807 187.559 100.226 186.353C69.6454 185.297 41.0228 161.023 21.7403 129.362C2.45775 
+                                    97.8511 -7.48481 59.1033 6.67581 34.5279C20.9871 10.1032 59.7028 -0.149132 97.9666 
+                                    0.00163737C136.23 0.303176 174.193 10.857 190.312 36.4879Z"/>
+                                </mask>
+                                <g mask="url(#mask0)">
+                                    <path d="M190.312 36.4879C206.582 62.1187 201.309 102.826 182.328 134.186C163.346 
+                                    165.547 130.807 187.559 100.226 186.353C69.6454 185.297 41.0228 161.023 21.7403 
+                                    129.362C2.45775 97.8511 -7.48481 59.1033 6.67581 34.5279C20.9871 10.1032 59.7028 
+                                    -0.149132 97.9666 0.00163737C136.23 0.303176 174.193 10.857 190.312 36.4879Z"/>
+
+                                    <!--==================== 
+                                        Insert your image in the Img folder and Change your image |
+                                        Center your image with X: horizontal, Y: vertical 
+                                    ====================-->
+                                    <image class="home__blob-img" x="12" y="18" href="assets/img/perfil.png"/>
+                                </g>
+                            </svg>
+                        </div>
+
+                        <div class="home__data">
+                            <h1 class="home__title">Hi, I'm Argy</h1>
+                            <h3 class="home__subtitle">Argyrios Gerogiannis</h3>
+                            <p class="home__description">PhD Student in Electrical & Computer Engineering at the University of Illinois at Urbana-Champaign (UIUC)</p>
+                            <a download="" href="assets/pdf/Argy-CV.pdf" target="_blank" rel="noopener noreferrer" class="button button--flex">
+                                Download CV <i class="uil uil-download-alt button__icon"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    
+                    <div class="home__scroll">
+                        <a href="#about" class="home__scroll-button button--flex">
+                            <i class="uil uil-mouse-alt home__scroll-mouse"></i>
+                            <span class="home__scroll-name">Scroll down</span>
+                            <i class="uil uil-arrow-down home__scroll-arrow"></i>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!--==================== ABOUT ====================-->
+            <section class="about section" id="about">
+                <h2 class="section__title">About Me</h2>
+                <span class="section__subtitle">A brief introduction</span>
+
+                <div class="about__container container grid">
+                    <img src="assets/img/about.jpg" alt="" class="about__img">
+
+                    <div class="about__data">
+                        <p class="about__description">I am a second-year PhD student in the <b><a href="https://ece.illinois.edu/" target="_blank" rel="noopener noreferrer">Electrical and Computer Engineering</a></b> 
+                            department at the <b><a href="https://illinois.edu/" target="_blank" rel="noopener noreferrer">University of Illinois Urbana-Champaign (UIUC)</a></b>, where I am very fortunate to be advised by 
+                            <b><a href="https://vvv.ece.illinois.edu/" target="_blank" rel="noopener noreferrer">Prof. Venugopal Veeravalli</a></b>. Before that,
+                            I graduated with a Diploma (BSc+MEng) in <b><a href="https://www.ece.upatras.gr/index.php/en/" target="_blank" rel="noopener noreferrer">Electrical and Computer Engineering</a></b> 
+                            from the <b><a href="https://www.upatras.gr/en/" target="_blank" rel="noopener noreferrer">University of Patras</a></b>, at which I had the wonderful opportunity to work with
+                            <b><a href="http://www.ssp.ece.upatras.gr/moustakides/" target="_blank" rel="noopener noreferrer">Prof. George Moustakides</a></b>. For more information, feel 
+                            free to see my <b><a href="assets/pdf/Argy-CV.pdf" target="_blank" rel="noopener noreferrer">CV</a></b>.
+                            <br><br>
+                            If you enjoy linguistics (or are simply confused), my full legal first name is <b>Argyrios</b>. However, I mostly go by <b>Argyris</b>, 
+                            especially when I visit Greece, due to the weird nature of male Greek names! The "englishized" version of my name is <b>Argy</b>, pronounced "R-G", hence the name on this site.
+                            I go by all of these names, but I believe there is a clear winner.
+                        </p>
+                    </div>
+                </div>
+            </section>
+            
+             <!--==================== SERVICES ====================-->
+             <section class="services section" id="services">
+                <h2 class="section__title">Research</h2>
+                <span class="section__subtitle">My current research interests</span>
+
+                <div class="services__container container grid">
+                    <!--=============== SERVICES 1 ===============-->
+                    <div class="services__content">
+                        <span>
+                            <i class="uil uil-robot services__icon" ></i>
+                            <h3 class="services__title">Reinforcement<br>Learning</h3>
+                        </span>
+                        <span class="button button--flex button--small button--link services__button">
+                            View More 
+                            <i class="uil uil-arrow-right button__icon"></i>
+                        </span>
+
+                        <div class="services__modal">
+                            <div class="services__modal-content">
+                                <h4 class="services__modal-title">Reinforcement Learning</h4>
+                                <i class="uil uil-times services__modal-close"></i>
+    
+                                <ul class="services__modal-services grid">
+                                    <li class="services__modal-service">
+                                        <p>I like to design stable and safe algorithms, models for time-varying environments and, particularly, approaches that learn from expert behavior.
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+
+                    <!--=============== SERVICES 2 ===============-->
+                    <div class="services__content">
+                        <div>
+                            <i class="uil uil-ninja services__icon"></i>
+                            <h3 class="services__title">Multi-Armed <br>Bandits</h3>
+                        </div>
+                        <span class="button button--flex button--small button--link services__button">
+                            View More 
+                            <i class="uil uil-arrow-right button__icon"></i>
+                        </span>
+
+                        <div class="services__modal">
+                            <div class="services__modal-content">
+                                <h4 class="services__modal-title">Multi-Armed Bandits</h4>
+                                <i class="uil uil-times services__modal-close"></i>
+    
+                                <ul class="services__modal-services grid">
+                                    <li class="services__modal-service">
+                                        <p>I focus on finding solutions for nonstationary models.</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--=============== SERVICES 3 ===============-->
+                    <div class="services__content">
+                        <div>
+                            <i class="uil uil-brain services__icon"></i>
+                            <h3 class="services__title">Machine <br>Learning</h3>
+                        </div>
+                        <span class="button button--flex button--small button--link services__button">
+                            View More 
+                            <i class="uil uil-arrow-right button__icon"></i>
+                        </span>
+
+                        <div class="services__modal">
+                            <div class="services__modal-content">
+                                <h4 class="services__modal-title">Machine Learning</h4>
+                                <i class="uil uil-times services__modal-close"></i>
+    
+                                <ul class="services__modal-services grid">
+                                    <li class="services__modal-service">
+                                        <p>I am interested in applying Deep Learning to approximate Reinforcement Learning elements.</p>
+                                    </li>
+                                    
+                                </ul>
+                            </div>
+                    </div>
+                </div>
+            </section>
+
+
+
+            <!--==================== QUALIFICATION ====================-->
+            <section class="qualification section" id="univer">
+                <h2 class="section__title">Education and Work Experience</h2>
+                <span class="section__subtitle">My educational and professional timelines</span>
+
+                <div class="qualification__container container">
+                    <div class="qualification__tabs">
+                        <div class="qualification__button button--flex qualification__active" data-target="#education">
+                            <i class="uil uil-graduation-cap qualification__icon"></i>
+                            Education
+                        </div>
+
+                        <div class="qualification__button button--flex" data-target="#work">
+                            <i class="uil uil-briefcase-alt qualification__icon"></i>
+                            Work
+                        </div>                      
+                    </div>
+
+                    <div class="qualification__sections">
+                        <!--=============== QUALIFICATION CONTENT 1 ===============-->
+                        <div class="qualification__content qualification__active" data-content id="education">
+                            <!--=============== QUALIFICATION 1 ===============-->
+                            <div class="qualification__data">
+                                <div>
+                                    <h3 class="qualification__title">Diploma (BSc+MEng) in Electrical & Computer Engineering</h3>
+                                    <span class="qualification__subtitle">University of Patras, Patras, Greece</span>
+                                    <div class="qualification__calendar">
+                                        <i class="uil uil-calendar-alt"></i>
+                                        2017 - 2022
+                                    </div>
+                                </div>
+    
+                                <div>
+                                    <span class="qualification__rounder"></span>
+                                    <span class="qualification__line"></span>
+                                </div>
+                            </div>
+                            
+    
+                            <!--=============== QUALIFICATION 4 ===============-->
+                            <div class="qualification__data">
+                                <div></div>
+                                     
+                                <div class="qualification__time">
+                                    <span class="qualification__rounder"></span>
+                                    <!-- <span class="qualification__line"></span> -->
+                                </div>
+
+                                <div>
+                                    <h3 class="qualification__title">PhD in Electrical & Computer Engineering</h3>
+                                    <span class="qualification__subtitle">University of Illinois at Urbana-Champaign, Urbana, USA</span>
+                                    <div class="qualification__calendar">
+                                        <i class="uil uil-calendar-alt"></i>
+                                        2022 - Present
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <!--=============== QUALIFICATION CONTENT 2 ===============-->
+                        <div class="qualification__content" data-content id="work">
+                            <!--=============== QUALIFICATION 1 ===============-->
+                            <div class="qualification__data">
+                                <div>
+                                    <h3 class="qualification__title">Private Tutor</h3>
+                                    <span class="qualification__subtitle">Patras, Greece</span>
+                                    <div class="qualification__calendar">
+                                        <i class="uil uil-calendar-alt"></i>
+                                        2017-2020
+                                    </div>
+                                </div>
+    
+                                <div>
+                                    <span class="qualification__rounder"></span>
+                                    <span class="qualification__line"></span>
+                                </div>
+                            </div>
+                            
+                            <!--=============== QUALIFICATION 2 ===============-->
+                            <div class="qualification__data">
+                                <div></div>
+                                     
+                                <div class="qualification__time">
+                                    <span class="qualification__rounder"></span>
+                                    <!-- <span class="qualification__line"></span> -->
+                                </div>
+
+                                <div>
+                                    <h3 class="qualification__title">Graduate Research Assistant</h3>
+                                    <span class="qualification__subtitle">University of Illinois at Urbana-Champaign, Urbana, USA</span>
+                                    <div class="qualification__calendar">
+                                        <i class="uil uil-calendar-alt"></i>
+                                        2022 - Present
+                                    </div>
+                                </div>
+                            </div>
+    
+                            
+                            
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--==================== SKILLS ====================-->
+            <section class="skills section" id="skills">
+                <h2 class="section__title">Skills</h2>
+                <span class="section__subtitle">My technical level</span>
+
+                <div class="skills__container container">
+                    <div>
+                        <!--=============== SKILLS 1 ===============-->
+                        <div class="skills__content skills__open">
+                            <div class="skills__header">
+                                <i class="uil uil-arrow skills__icon"></i>
+    
+                                <div>
+                                    <h1 class="skills__title">Programming Languages</h1>
+                                    <span class="skills__subtitle">Programming Skills</span>
+                                </div>
+    
+                                <i class="uil uil-angle-down skills__arrow"></i>
+                            </div>
+    
+                            <div class="skills__list grid">
+                                <div class="skills__data">
+                                    <div class="skills__titles">
+                                        <h3 class="skills__name">Python</h3>
+                                        <span class="skills__number">99%</span>
+                                    </div>
+                                    <div class="skills__bar">
+                                        <span class="skills__percentage skills_python"></span>
+                                    </div>
+                                </div>
+    
+                                <div class="skills__data">
+                                    <div class="skills__titles">
+                                        <h3 class="skills__name">C</h3>
+                                        <span class="skills__number">80%</span>
+                                    </div>
+                                    <div class="skills__bar">
+                                        <span class="skills__percentage skills__c"></span>
+                                    </div>
+                                </div>
+    
+                                <div class="skills__data">
+                                    <div class="skills__titles">
+                                        <h3 class="skills__name">Matlab</h3>
+                                        <span class="skills__number">75%</span>
+                                    </div>
+                                    <div class="skills__bar">
+                                        <span class="skills__percentage skills__matlab"></span>
+                                    </div>
+                                </div>
+    
+                                <div class="skills__data">
+                                    <div class="skills__titles">
+                                        <h3 class="skills__name">C++</h3>
+                                        <span class="skills__number">50%</span>
+                                    </div>
+                                    <div class="skills__bar">
+                                        <span class="skills__percentage skills__cpp"></span>
+                                    </div>
+                                </div>
+
+                                <div class="skills__data">
+                                    <div class="skills__titles">
+                                        <h3 class="skills__name">Java</h3>
+                                        <span class="skills__number">30%</span>
+                                    </div>
+                                    <div class="skills__bar">
+                                        <span class="skills__percentage skills__java"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <!--=============== SKILLS 2 ===============-->
+                        <div class="skills__content skills__close">
+                            <div class="skills__header">
+                                <i class="uil uil-setting skills__icon"></i>
+    
+                                <div>
+                                    <h1 class="skills__title">Auto-Differentiation Frameworks</h1>
+                                    <span class="skills__subtitle">Programming Skills</span>
+                                </div>
+    
+                                <i class="uil uil-angle-down skills__arrow"></i>
+                            </div>
+    
+                            <div class="skills__list grid">
+                                <div class="skills__data">
+                                    <div class="skills__titles">
+                                        <h3 class="skills__name">PyTorch</h3>
+                                        <span class="skills__number">95%</span>
+                                    </div>
+                                    <div class="skills__bar">
+                                        <span class="skills__percentage skills__pytorch"></span>
+                                    </div>
+                                </div>
+    
+                                <div class="skills__data">
+                                    <div class="skills__titles">
+                                        <h3 class="skills__name">TensorFlow</h3>
+                                        <span class="skills__number">75%</span>
+                                    </div>
+                                    <div class="skills__bar">
+                                        <span class="skills__percentage skills__tflow"></span>
+                                    </div>
+                                </div>
+    
+                                <div class="skills__data">
+                                    <div class="skills__titles">
+                                        <h3 class="skills__name">Keras</h3>
+                                        <span class="skills__number">50%</span>
+                                    </div>
+                                    <div class="skills__bar">
+                                        <span class="skills__percentage skills__keras"></span>
+                                    </div>
+                                </div>
+    
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </section>
+            <!--==================== CONTACT ME ====================-->
+            <section class="contact section" id="contact">
+                <h2 class="section__title">Contact Me</h2>
+                <span class="section__subtitle">Get in touch</span>
+                
+                <div class="contact__container container">
+                    <div>
+                        <div class="contact__information">
+                            <i class="uil uil-envelope contact__icon"></i>
+                            <div>
+                                <h3 class="contact__title">Email</h3>
+                                <span class="contact__subtitle">Email me at:</span>
+                                <span class="contact__subtitle"><b><a href="mailto:argyrger@gmail.com" style="color:#5857df;">argyrger@gmail.com</a></b></span>
+                                <span class="contact__subtitle">or</span>
+                                <span class="contact__subtitle"><b><a href="mailto:ag91@illinois.edu" style="color:#5857df;">ag91@illinois.edu</a></b></span>
+                            </div>
+                        </div>
+
+                        <div class="contact__information">
+                            <i class="uil uil-map-marker contact__icon"></i>
+                            <div>
+                                <h3 class="contact__title">Location</h3>
+                                <span class="contact__subtitle">My office is located at: </span><br>
+                                <span class="contact__subtitle" style="color:#5857df;"><b>University of Illinois, 312 CSL
+                                    1308 West Main Street, Urbana, IL 61801</b></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- <form action="mailto:argyrger@gmail.com" class="contact__form grid" method="post">
+                        <div class="contact__inputs grid">
+                            <div class="contact__content">
+                                <label for="" class="contact__label">Name</label>
+                                <input type="text" class="contact__input">
+                            </div>
+                            <div class="contact__content">
+                                <label for="" class="contact__label">Email</label>
+                                <input type="email" class="contact__input">
+                            </div>
+                        </div>
+                        <div class="contact__content">
+                            <label for="" class="contact__label">Subject</label>
+                            <input type="text" class="contact__input">
+                        </div>
+                        <div class="contact__content">
+                            <label for="" class="contact__label">Message</label>
+                            <textarea name="" id="" cols="0" rows="7" class="contact__input"></textarea>
+                        </div>
+                        
+                        <div>
+                            <a type="submit" class="button button--flex">
+                                Send Message
+                                <i class="uil uil-message button__icon"></i>
+                            </a>
+                        </div>
+                    </form> -->
+                </div>
+
+            </section>
+        </main>
+
+        <!--==================== FOOTER ====================-->
+        <footer class="footer">
+            <div class="footer__bg">
+                <div class="footer__container container grid">
+                    <div>
+                        <h1 class="footer__title">Argy Gerogiannis</h1>
+                        <span class="footer__subtitle">PhD Student</span>
+                    </div>
+
+                    <ul class="footer__links">
+                        <li>
+                            <a href="#about" class="footer__link">About</a>
+                        </li>
+                        <li>
+                            <a href="#services" class="footer__link">Research</a>
+                        </li>
+                        <li>
+                            <a href="#univer" class="footer__link">Education/Work</a>
+                        </li>
+                    </ul>
+
+                    <div class="footer__socials">
+                        <a href="mailto:argyrger@gmail.com" target="_blank" class="footer__social">
+                            <i class="uil uil-envelope-alt"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/argyrger/" target="_blank" class="footer__social">
+                            <i class="uil uil-linkedin"></i>
+                        </a>
+                        <a href="https://github.com/Grimoid" target="_blank" class="footer__social">
+                            <i class="uil uil-github-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <p class="footer__copy">&#169; Argyrios Gerogiannis 2023. All right reserved</p>
+            </div>
+        </footer>
+
+        <!--========== SCROLL TOP ==========-->
+        <a href="#" class="scrollup" id="scroll-top">
+            <i class="uil uil-arrow-up scrollup__icon"></i>
+        </a>
+
+        <!--==================== SWIPER JS ====================-->
+        <script src="assets/js/swiper-bundle.min.js"></script>
+
+        <!--==================== MAIN JS ====================-->
+        <script src="assets/js/main.js"></script>
+    </body>
+</html>
