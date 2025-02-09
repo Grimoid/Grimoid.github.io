@@ -67,7 +67,7 @@
 
                         <li class="nav__item">
                             <a href="#research" class="nav__link">
-                                <i class="uil uil-scenery nav__icon"></i> Research
+                                <i class="uil uil-comparison nav__icon"></i> Research
                             </a>
                         </li>
 
@@ -345,11 +345,14 @@
             }
             }
 
+         /* --- IMPORTANT: MOBILE-FRIENDLY FIX --- */
             @media (max-width: 480px) {
-            #research .project__bg {
-                margin: 1rem;
-                padding: 1.5rem;
-            }
+                #research .project__bg {
+                    width: 90%;         /* Slightly narrower than footer */
+                    max-width: 400px;   /* You can adjust this as desired */
+                    margin: 1rem auto;
+                    padding: 1rem;
+                }
             }
 
 
@@ -487,7 +490,8 @@
                             free to see my <b><a href="assets/pdf/Argy-CV.pdf" target="_blank" rel="noopener noreferrer">CV</a></b>.
                             <br><br>
                             If you enjoy linguistics (or are simply confused), my full legal first name is <b>Argyrios</b>. However, I mostly go by <b>Argyris</b>, 
-                            especially when I visit Greece, due to the weird nature of male Greek names! I am also privileged to have a <b>secret</b> name. The anglicized version of my name is <b>Argy</b>, pronounced "R-G", hence the name on this site.
+                            especially when I visit Greece, due to the weird nature of male Greek names! The anglicized version of my name is <b>Argy</b>, pronounced "R-G", hence the name on this site.
+                            However, I am also privileged to have a <b>secret</b> name. 
                             I go by all four of my names, but I believe there is a clear winner.
                         </p>
                     </div>
