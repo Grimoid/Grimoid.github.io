@@ -60,7 +60,7 @@
                     <ul class="nav__list grid">
                         <li class="nav__item">
                             <a href="#home" class="nav__link active-link">
-                                <i class="uil uil-estate nav__icon"></i> Home/CV
+                                <i class="uil uil-estate nav__icon"></i> Home
                             </a>
                         </li>
 
@@ -71,23 +71,22 @@
                             </a>
                         </li>
 
-                        <li class="nav__item">
-                            <a href="#about" class="nav__link">
-                                <i class="uil uil-user nav__icon"></i> About
-                            </a>
-                        </li>
-
-                        <li class="nav__item">
+                        <!-- <li class="nav__item">
                             <a href="#univer" class="nav__link">
                                 <i class="uil uil-briefcase-alt nav__icon"></i> Education/Work
                             </a>
-                        </li>
+                        </li> -->
                         <li class="nav__item">
                             <a href="#publications" class="nav__link">
                                 <i class="uil uil-file-alt nav__icon"></i> Publications
                             </a>
                         </li>
 
+                        <li class="nav__item">
+                            <a href="#about" class="nav__link">
+                                <i class="uil uil-user nav__icon"></i> About
+                            </a>
+                        </li>
 
 
                         <li class="nav__item">
@@ -179,136 +178,297 @@
                 </div>
             </section>
 
-
-            <!--==================== RESEARCH ====================-->
+            <!-- ==================== RESEARCH SECTION ==================== -->
             <section class="research section" id="research">
-                <h2 class="section__title">Research</h2>
-                <span class="section__subtitle">My current interests</span>
-                <div class="project__bg">
-                    <div class="project__container container">
-                        <div class="project__data">
-                            <p class="project__description">
-                                My research interests broadly encompass machine learning, 
-                                with a current focus on reinforcement learning and online learning in non-stationary bandit algorithms. 
-                                I also have prior experience in imitation learning, inverse reinforcement learning, and generative modeling.</p>
-                            <div class="project__buttons">
-                                <a href="https://scholar.google.com/citations?hl=en&user=4xJ6meUAAAAJ" target="_blank" rel="noopener noreferrer" class="button button--flex button--white scholar-button">
-                                    Google Scholar 
-                                    <i class="uil uil-graduation-cap"></i>
-                                </a>
-                                <div class="services__buttons-container">
-                                    <button type="button" class="button button--flex button--small button--link services__button">
-                                        <i class="uil uil-robot services__icon"></i>
-                                    </button>
-                                    <button type="button" class="button button--flex button--small button--link services__button">
-                                        <i class="uil uil-ninja services__icon"></i>
-                                    </button>
-                                    <button type="button" class="button button--flex button--small button--link services__button">
-                                        <i class="uil uil-brain services__icon"></i>
-                                    </button>
-                                </div>
-                            </div>
-            
-                            <!-- Services modals -->
-                            <div class="services__modal">
-                                <div class="services__modal-content">
-                                    <h4 class="services__modal-title">Reinforcement Learning</h4>
-                                    <i class="uil uil-times services__modal-close"></i>
-                                    <ul class="services__modal-services grid">
-                                        <li class="services__modal-service">
-                                            <p>I like to design models for partially observable environments, algorithms for time-varying settings and, particularly, approaches that learn from expert behavior.</p>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-            
-                            <div class="services__modal">
-                                <div class="services__modal-content">
-                                    <h4 class="services__modal-title">Bandit Algorithms</h4>
-                                    <i class="uil uil-times services__modal-close"></i>
-                                    <ul class="services__modal-services grid">
-                                        <li class="services__modal-service">
-                                            <p>I focus on finding solutions for nonstationary models in finite-arm settings.</p>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-            
-                            <div class="services__modal">
-                                <div class="services__modal-content">
-                                    <h4 class="services__modal-title">Machine Learning</h4>
-                                    <i class="uil uil-times services__modal-close"></i>
-                                    <ul class="services__modal-services grid">
-                                        <li class="services__modal-service">
-                                            <p>I am interested in generative modeling and its intersection with reinforcement learning.</p>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
+            <h2 class="section__title">Research</h2>
+            <span class="section__subtitle">My current interests</span>
+
+            <!-- Outer box -->
+            <div class="project__bg">
+                <!-- Inner container (transparent) -->
+                <div class="project__container">
+                <div class="project__data">
+                    <p class="project__description">
+                    My research interests broadly encompass machine learning,
+                    with a current focus on reinforcement learning and online learning
+                    in non-stationary bandit algorithms. I also have prior experience in 
+                    imitation learning, inverse reinforcement learning, and generative modeling.
+                    </p>
+
+                    <div class="project__buttons">
+                    <!-- Scholar button: no color changes here -->
+                    <a 
+                        href="https://scholar.google.com/citations?hl=en&user=4xJ6meUAAAAJ" 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        class="button button--flex button--white scholar-button"
+                    >
+                        Google Scholar <i class="uil uil-graduation-cap"></i>
+                    </a>
+                    
+                    <div class="services__buttons-container">
+                        <button type="button" class="button button--flex button--small button--link services__button">
+                        <i class="uil uil-robot services__icon"></i>
+                        </button>
+                        <button type="button" class="button button--flex button--small button--link services__button">
+                        <i class="uil uil-ninja services__icon"></i>
+                        </button>
+                        <button type="button" class="button button--flex button--small button--link services__button">
+                        <i class="uil uil-brain services__icon"></i>
+                        </button>
+                    </div>
+                    </div>
+
+                <!-- Services modals -->
+                <div class="services__modal">
+                    <div class="services__modal-content">
+                        <h4 class="services__modal-title">Reinforcement Learning</h4>
+                        <i class="uil uil-times services__modal-close"></i>
+                        <ul class="services__modal-services grid">
+                            <li class="services__modal-service">
+                                <p>I like to design models for partially observable environments, algorithms for time-varying settings and, particularly, approaches that learn from expert behavior.</p>
+                            </li>
+                        </ul>
                     </div>
                 </div>
-            </section>
-            
-            <style>
-                #research .section__subtitle {
-                    margin-bottom: 0.5rem; /* Reduces space below the subtitle only for the research section */
-                }
-            
-                #research .project__bg {
-                    margin-top: 0; /* Ensures no extra space above the box in the research section */
-                }
-            
-                #research .project__data {
-                    display: flex;
-                    flex-direction: column;
-                    gap: 10px;
-                }
-            
-                #research .project__buttons {
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                }
-            
-                #research .scholar-button {
-                    font-size: 1rem; /* Slightly larger size for Google Scholar button */
-                    padding: 8px 12px;
-                }
-            
-                #research .services__buttons-container {
-                    display: flex;
-                    gap: 8px;
-                }
-            
-                #research .services__button {
-                    font-size: 0.8rem; /* Adjust icon button size */
-                    padding: 5px;
-                    background: none;
-                    border: none;
-                    cursor: pointer;
-                }
-            
-                #research .services__icon {
-                    transition: transform 0.2s;
-                }
-            
-                #research .services__icon:hover {
-                    animation: jiggle 0.5s infinite;
-                }
-            
-                @keyframes jiggle {
-                    0%, 100% {
-                        transform: rotate(-3deg);
-                    }
-                    50% {
-                        transform: rotate(3deg);
-                    }
-                }
-            </style>
-            
-            
 
+                <div class="services__modal">
+                    <div class="services__modal-content">
+                        <h4 class="services__modal-title">Bandit Algorithms</h4>
+                        <i class="uil uil-times services__modal-close"></i>
+                        <ul class="services__modal-services grid">
+                            <li class="services__modal-service">
+                                <p>I focus on finding solutions for nonstationary models in parametric and non-parametric settings.</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="services__modal">
+                    <div class="services__modal-content">
+                        <h4 class="services__modal-title">Machine Learning</h4>
+                        <i class="uil uil-times services__modal-close"></i>
+                        <ul class="services__modal-services grid">
+                            <li class="services__modal-service">
+                                <p>I am interested in generative modeling and its intersection with reinforcement learning.</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                </div>
+                </div>
+            </div>
+            </section>
+
+            <style>
+            /* --- RESEARCH SECTION BASE STYLES (unchanged) --- */
+
+            #research .section__subtitle {
+            margin-bottom: 0.5rem; 
+            }
+            #research .project__description {
+                font-size: 1.1rem;
+            }
+
+
+            #research .project__bg {
+            width: 100%;
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            border-radius: 8px;
+            /* The next line sets a neutral default background (can be anything),
+                which we’ll override for light/dark just below. */
+            background-color: #f0f0f0; 
+            border: 1px solid currentColor;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            box-sizing: border-box;
+            }
+
+            #research .project__container {
+            background: transparent;
+            margin: 0 auto;
+            padding: 0;
+            max-width: 100%;
+            box-sizing: border-box;
+            }
+
+            #research .project__data {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            }
+
+            #research .project__description {
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            }
+
+            #research .scholar-button {
+            font-size: 1rem;
+            padding: 8px 12px;
+            }
+
+            #research .project__buttons {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            }
+
+            #research .services__buttons-container {
+            display: flex;
+            gap: 8px;
+            }
+
+            #research .services__button {
+            font-size: 0.8rem;
+            padding: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            }
+
+            #research .services__icon {
+            transition: transform 0.2s;
+            }
+
+            #research .services__icon:hover {
+            animation: jiggle 0.5s infinite;
+            }
+
+            @keyframes jiggle {
+            0%, 100% {
+                transform: rotate(-3deg);
+            }
+            50% {
+                transform: rotate(3deg);
+            }
+            }
+
+            @media (max-width: 480px) {
+            #research .project__bg {
+                margin: 1rem;
+                padding: 1.5rem;
+            }
+            }
+
+
+            /* 
+            --- THEME OVERRIDES ---
+            If your site toggles a .dark-theme class on <body> for dark mode, 
+            these two blocks set the box background accordingly. 
+            (Adjust the colors as you like.)
+            */
+            body:not(.dark-theme) #research .project__bg {
+            background-color: #5857df !important; /* Purple for light theme */
+            }
+
+
+
+            body.dark-theme #research .project__bg {
+            background-color: #00184b4d !important;    /* Black for dark theme */
+            color: #fff;                          /* Ensure text is visible on black */
+            }
+            </style>
+        
+            
+            <!--==================== PUBLICATIONS ====================-->
+                        <!--==================== PORTFOLIO ====================-->
+                        <section class="portfolio section" id="publications">
+                            <h2 class="section__title">Publications</h2>
+                            <span class="section__subtitle">Most recent work</span>
+            
+                            <div class="portfolio__container container swiper-container">
+                                <div class="swiper-wrapper">
+                                    <!--=============== PORTFOLIO 1 ===============-->
+
+                                    <div class="portfolio__content grid swiper-slide">
+                                        <img src="assets/img/DAB.png" 
+                                            srcset="assets/img/DAB@2x.png 2x, assets/img/DAB.png 1x" 
+                                            alt="" 
+                                            class="portfolio__img" 
+                                            oncontextmenu="return false;">
+                                        
+                                            <div class="portfolio__data">
+                                                <h3 class="portfolio__title">Detection Is All You Need: A Feasible Optimal Prior-Free Black-Box Approach For Piecewise Stationary Bandits (Under Review)</h3>
+                                                <p class="portfolio__description"><span class="highlight-name">Argyrios Gerogiannis</span>, Yu-Han Huang, Subhonmesh Bose, Venugopal V. Veeravalli</p>
+                                                <a href="https://arxiv.org/abs/2501.19401" target="_blank" rel="noopener noreferrer" class="button button--flex button--small portfolio__button">
+                                                    Paper
+                                                    <i class="uil uil-book-reader button__icon"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                    <div class="portfolio__content grid swiper-slide">
+                                        <img src="assets/img/CDBP.png" 
+                                            srcset="assets/img/CDBP@2x.png 2x, assets/img/CDBP.png 1x" 
+                                            alt="" 
+                                            class="portfolio__img" 
+                                            oncontextmenu="return false;">
+                                        
+                                            <div class="portfolio__data">
+                                                <h3 class="portfolio__title">Change Detection-Based Procedures for Piecewise Stationary MABs: A Modular Approach (Under Review)</h3>
+                                                <p class="portfolio__description">Yu-Han Huang, <span class="highlight-name">Argyrios Gerogiannis</span>, Subhonmesh Bose, Venugopal V. Veeravalli</p>
+                                                <a href="https://arxiv.org/abs/2501.01291" target="_blank" rel="noopener noreferrer" class="button button--flex button--small portfolio__button">
+                                                    Paper
+                                                    <i class="uil uil-book-reader button__icon"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="portfolio__content grid swiper-slide">
+                                        <img src="assets/img/IsPFBBNSRLFeas.jpg" 
+                                            srcset="assets/img/IsPFBBNSRLFeas@2x.jpg 2x, assets/img/IsPFBBNSRLFeas.jpg 1x" 
+                                            alt="" 
+                                            class="portfolio__img" 
+                                            oncontextmenu="return false;">
+                                        
+                                            <div class="portfolio__data">
+                                                <h3 class="portfolio__title">Is Prior-Free Black-Box Non-Stationary Reinforcement Learning Feasible? <span class="highlight-name">AISTATS, 2025</span></h3>
+                                                <p class="portfolio__description"><span class="highlight-name">Argyrios Gerogiannis</span>, Yu-Han Huang, Venugopal V. Veeravalli</p>
+                                                <a href="https://arxiv.org/abs/2410.13772" target="_blank" rel="noopener noreferrer" class="button button--flex button--small portfolio__button">
+                                                    Paper
+                                                    <i class="uil uil-book-reader button__icon"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                     <!--=============== PORTFOLIO 1 ===============-->
+                                     <div class="portfolio__content grid swiper-slide">
+                                        <img src="assets/img/track-mdp.png" 
+                                            srcset="assets/img/track-mdp@2x.png 2x, assets/img/track-mdp.png 1x" 
+                                            alt="" 
+                                            class="portfolio__img" 
+                                            oncontextmenu="return false;">
+                                        
+                                            <div class="portfolio__data">
+                                                <h3 class="portfolio__title">Track-MDP: Reinforcement Learning for Target Tracking with Controlled Sensing <span class="highlight-name">ICASSP, 2025</span></h3>
+                                                <p class="portfolio__description">Adarsh M. Subramaniam, <span class="highlight-name">Argyrios Gerogiannis</span>, James Z. Hare, Venugopal V. Veeravalli</p>
+                                                <a href="https://arxiv.org/abs/2407.13995" target="_blank" rel="noopener noreferrer" class="button button--flex button--small portfolio__button">
+                                                    Paper
+                                                    <i class="uil uil-book-reader button__icon"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+            
+                                <div class="swiper-button-next">
+                                    <i class="uil uil-angle-right-b swiper-portfolio-icon"></i>
+                                </div>
+                                <div class="swiper-button-prev">
+                                    <i class="uil uil-angle-left-b swiper-portfolio-icon"></i>
+                                </div>
+            
+                                <div class="swiper-pagination"></div>
+                            </div>
+                        </section>
+            
+                        <style>
+            
+                            /* Custom style for your name */
+                            .highlight-name {
+                                font-weight: bold;
+                                color: #7877ff;
+                            }
+                        </style>
             <!--==================== ABOUT ====================-->
             <section class="about section" id="about">
                 <h2 class="section__title">About Me</h2>
@@ -327,8 +487,8 @@
                             free to see my <b><a href="assets/pdf/Argy-CV.pdf" target="_blank" rel="noopener noreferrer">CV</a></b>.
                             <br><br>
                             If you enjoy linguistics (or are simply confused), my full legal first name is <b>Argyrios</b>. However, I mostly go by <b>Argyris</b>, 
-                            especially when I visit Greece, due to the weird nature of male Greek names! The "englishized" version of my name is <b>Argy</b>, pronounced "R-G", hence the name on this site.
-                            I go by all of these names, but I believe there is a clear winner.
+                            especially when I visit Greece, due to the weird nature of male Greek names! I am also privileged to have a <b>secret</b> name. The anglicized version of my name is <b>Argy</b>, pronounced "R-G", hence the name on this site.
+                            I go by all four of my names, but I believe there is a clear winner.
                         </p>
                     </div>
                 </div>
@@ -355,8 +515,7 @@
 
             
             
-
-            <!--==================== QUALIFICATION ====================-->
+<!-- 
             <section class="qualification section" id="univer">
                 <h2 class="section__title">Education and Work Experience</h2>
                 <span class="section__subtitle">My educational and professional timelines</span>
@@ -375,9 +534,7 @@
                     </div>
 
                     <div class="qualification__sections">
-                        <!--=============== QUALIFICATION CONTENT 1 ===============-->
                         <div class="qualification__content qualification__active" data-content id="education">
-                            <!--=============== QUALIFICATION 1 ===============-->
                             <div class="qualification__data">
                                 <div>
                                     <h3 class="qualification__title">Diploma (BSc+MEng) in Electrical & Computer Engineering</h3>
@@ -395,13 +552,11 @@
                             </div>
                             
     
-                            <!--=============== QUALIFICATION 4 ===============-->
                             <div class="qualification__data">
                                 <div></div>
                                      
                                 <div class="qualification__time">
                                     <span class="qualification__rounder"></span>
-                                    <!-- <span class="qualification__line"></span> -->
                                 </div>
 
                                 <div>
@@ -415,9 +570,7 @@
                             </div>
                         </div>
     
-                        <!--=============== QUALIFICATION CONTENT 2 ===============-->
                         <div class="qualification__content" data-content id="work">
-                            <!--=============== QUALIFICATION 1 ===============-->
                             <div class="qualification__data">
                                 <div>
                                     <h3 class="qualification__title">Private Tutor</h3>
@@ -434,13 +587,11 @@
                                 </div>
                             </div>
                             
-                            <!--=============== QUALIFICATION 2 ===============-->
                             <div class="qualification__data">
                                 <div></div>
                                      
                                 <div class="qualification__time">
                                     <span class="qualification__rounder"></span>
-                                    <!-- <span class="qualification__line"></span> -->
                                 </div>
 
                                 <div>
@@ -451,78 +602,14 @@
                                         2022 - Present
                                     </div>
                                 </div>
-                            </div>
-    
-                            
-                            
+                            </div>                            
                         </div>
                     </div>
                 </div>
-            </section>
+            </section> -->
 
 
-            <!--==================== PORTFOLIO ====================-->
-            <section class="portfolio section" id="publications">
-                <h2 class="section__title">Publications</h2>
-                <span class="section__subtitle">Most recent work</span>
 
-                <div class="portfolio__container container swiper-container">
-                    <div class="swiper-wrapper">
-                        <!--=============== PORTFOLIO 1 ===============-->
-                        <div class="portfolio__content grid swiper-slide">
-                            <img src="assets/img/IsPFBBNSRLFeas.jpg" 
-                                srcset="assets/img/IsPFBBNSRLFeas@2x.jpg 2x, assets/img/IsPFBBNSRLFeas.jpg 1x" 
-                                alt="" 
-                                class="portfolio__img" 
-                                oncontextmenu="return false;">
-                            
-                                <div class="portfolio__data">
-                                    <h3 class="portfolio__title">Is Prior-Free Black-Box Non-Stationary Reinforcement Learning Feasible? (Under Review)</h3>
-                                    <p class="portfolio__description"><span class="highlight-name">Argyrios Gerogiannis</span>, Yu-Han Huang, Venugopal V Veeravalli</p>
-                                    <a href="https://arxiv.org/abs/2410.13772" target="_blank" rel="noopener noreferrer" class="button button--flex button--small portfolio__button">
-                                        Paper
-                                        <i class="uil uil-book-reader button__icon"></i>
-                                </a>
-                            </div>
-                        </div>
-                         <!--=============== PORTFOLIO 1 ===============-->
-                         <div class="portfolio__content grid swiper-slide">
-                            <img src="assets/img/track-mdp.png" 
-                                srcset="assets/img/track-mdp@2x.png 2x, assets/img/track-mdp.png 1x" 
-                                alt="" 
-                                class="portfolio__img" 
-                                oncontextmenu="return false;">
-                            
-                                <div class="portfolio__data">
-                                    <h3 class="portfolio__title">Track-MDP: Reinforcement Learning for Target Tracking with Controlled Sensing (Under Review)</h3>
-                                    <p class="portfolio__description">Adarsh M Subramaniam, <span class="highlight-name">Argyrios Gerogiannis</span>, James Z Hare, Venugopal V Veeravalli</p>
-                                    <a href="https://arxiv.org/abs/2407.13995" target="_blank" rel="noopener noreferrer" class="button button--flex button--small portfolio__button">
-                                        Paper
-                                        <i class="uil uil-book-reader button__icon"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="swiper-button-next">
-                        <i class="uil uil-angle-right-b swiper-portfolio-icon"></i>
-                    </div>
-                    <div class="swiper-button-prev">
-                        <i class="uil uil-angle-left-b swiper-portfolio-icon"></i>
-                    </div>
-
-                    <div class="swiper-pagination"></div>
-                </div>
-            </section>
-
-            <style>
-
-                /* Custom style for your name */
-                .highlight-name {
-                    font-weight: bold;
-                    color: #7877ff;
-                }
-            </style>
 
 
             
@@ -591,6 +678,18 @@
                 </div>
 
             </section>
+            <style>
+                .contact__subtitle a {
+                    color: #5857df; /* Default color */
+                    text-decoration: none;
+                    transition: color 0.3s ease; /* Smooth transition */
+                }
+            
+                .contact__subtitle a:hover {
+                    color: #7877ff; /* Change this to any color you want */
+                    text-decoration: underline;
+                }
+            </style>
         </main>
 
         <!--==================== FOOTER ====================-->
@@ -620,7 +719,7 @@
             </div>
         </div>
 
-        <p class="footer__copy">&#169; Argyrios Gerogiannis 2023. All rights reserved</p>
+        <p class="footer__copy">&#169; Argyrios Gerogiannis 2025. All rights reserved</p>
     </div>
 </footer>
 
