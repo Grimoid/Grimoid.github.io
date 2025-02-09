@@ -321,7 +321,7 @@
             }
 
             #research .services__button {
-            font-size: 0.8rem;
+            font-size: 1rem;
             padding: 5px;
             background: none;
             border: none;
@@ -371,6 +371,38 @@
             body.dark-theme #research .project__bg {
             background-color: #00184b4d !important;    /* Black for dark theme */
             color: #fff;                          /* Ensure text is visible on black */
+            }
+
+            /* ----- Medium Screens: e.g., up to 768px ----- */
+            @media (max-width: 768px) {
+            #research .services__button {
+                font-size: 0.95rem;
+                padding: 0.4rem;
+            }
+
+            #research .services__icon {
+                font-size: 3rem;
+            }
+
+            #research .services__buttons-container {
+                gap: 1rem;  
+            }
+            }
+
+            /* ----- Small Screens: e.g., up to 480px ----- */
+            @media (max-width: 480px) {
+            #research .services__button {
+                font-size: 0.85rem;
+                padding: 0.1rem 0.1rem;
+            }
+
+            #research .services__icon {
+                font-size: 3rem;
+            }
+
+            #research .services__buttons-container {
+                gap: 0.1rem;
+            }
             }
             </style>
         
