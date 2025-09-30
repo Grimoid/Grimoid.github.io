@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!--=============== FAVICON ===============-->
+        <link rel="shortcut icon" href="assets/img/icon.png" type="image/x-icon">
+        
+        <!--=============== REMIX ICONS ===============-->
+        <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
+        <!--=============== CSS ===============-->
+        <link rel="stylesheet" href="assets/css/styles.css">
+
+        <title>Mini portfolio website - Bedimcode</title>
+    </head>
+    <body>
+        <!--=============== HEADER ===============-->
+        <header class="profile container">
+            <!-- Theme button -->
+            <i class="ri-moon-line change-theme" id="theme-button"></i>
+
+            <div class="profile__container grid">
+                <div class="profile__data">
+                    <div class="profile__border">
+                        <div class="profile__perfil">
+                            <!-- Insert your image, according to the example size of the portfolio -->
+                            <img src="assets/img/me.png" alt="">
+                        </div>
+                    </div>
+
+                    <h2 class="profile__name">Argyrios (Argy) Gerogiannis</h2>
+                    <h3 class="profile__profession">PhD Candidate in ECE at UIUC</h3>
+
+                    <ul class="profile__social">
+                        <a href="mailto:argyrger@gmail.com" class="profile__social-link">
+                            <i class="ri-mail-send-line"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/argyrger/" target="_blank" class="profile__social-link">
+                            <i class="ri-linkedin-box-line"></i>
+                        </a>
+                        <a href="https://github.com/Grimoid" target="_blank" class="profile__social-link">
+                            <i class="ri-github-line"></i>
+                        </a>
+                    </ul>
+                </div>
+
+                <!-- <div class="profile__info grid">
+                    <div class="profile__info-group">
+                        <h3 class="profile__info-number">7</h3>
+                        <p class="profile__info-description">
+                            Years of <br> work
+                        </p>
+                    </div>
+                    <div class="profile__info-group">
+                        <h3 class="profile__info-number">+124</h3>
+                        <p class="profile__info-description">
+                            Completed <br> projects
+                        </p>
+                    </div>
+                    <div class="profile__info-group">
+                        <h3 class="profile__info-number">96</h3>
+                        <p class="profile__info-description">Satisfied <br> customers</p>
+                    </div>
+                </div> -->
+
+                <div class="profile__buttons">
+                    <!-- Insert your CV (match Google Scholar small gray style) -->
+                    <a href="assets/pdf/argy-CV.pdf" target="_blank" rel="noopener noreferrer" class="button button__small button__gray">
+                        <i class="ri-download-line"></i>
+                        Download CV
+                    </a>
+
+                    <div class="profile__buttons-small">
+                        <!-- Single small button linking to Google Scholar (replace USER_ID with your profile id) -->
+                        <a href="https://scholar.google.com/citations?hl=en&user=4xJ6meUAAAAJ" target="_blank" class="button button__small button__gray" title="Google Scholar">
+                            <i class="ri-book-open-line"></i>
+                            Google Scholar
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!--=============== MAIN ===============-->
+        <main class="main">
+            <section class="filters container">
+                <!--=============== FILTERS TABS ===============-->
+                <ul class="filters__content">
+                    <button class="filters__button filter-tab-active" data-target="#projects">
+                        Publications
+                    </button>
+                    <button class="filters__button" data-target="#skills">
+                        Research
+                    </button>
+                </ul>
+
+                <div class="filters__sections">
+                    <!--=============== PROJECTS ===============-->
+                    <div class="projects__content grid filters__active" data-content id="projects">
+                        <article class="projects__card">
+                            <!-- Insert your image in a rectangular format (Ex: 600 x 400, 1000 x 800, 1200 x 1000, etc) -->
+                            <img src="assets/img/DAL.png" alt="" class="projects__img">
+
+<<<<<<< HEAD
+                            <div class="projects__modal">
+=======
+                                    <!--==================== 
+                                        Insert your image in the Img folder and Change your image |
+                                        Center your image with X: horizontal, Y: vertical 
+                                    ====================-->
+                                    <image class="home__blob-img" x="12" y="18" href="assets/img/perfil.png"/>
+                                </g>
+                            </svg>
+                        </div>
+
+                        <div class="home__data">
+                            <h1 class="home__title">Hi, I'm Argy</h1>
+                            <h3 class="home__subtitle">Argyrios Gerogiannis</h3>
+                            <p class="home__description">PhD Candidate in Electrical & Computer Engineering at the University of Illinois at Urbana-Champaign (UIUC)</p>
+                            <a href="assets/pdf/Argy-CV.pdf" target="_blank" rel="noopener noreferrer" class="button button--flex">
+                                Download CV <i class="uil uil-download-alt button__icon"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    
+                    <div class="home__scroll">
+                        <a href="#research" class="home__scroll-button button--flex">
+                            <i class="uil uil-mouse-alt home__scroll-mouse"></i>
+                            <span class="home__scroll-name">Scroll down</span>
+                            <i class="uil uil-arrow-down home__scroll-arrow"></i>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ==================== RESEARCH SECTION ==================== -->
+            <section class="research section" id="research">
+            <h2 class="section__title">Research</h2>
+            <span class="section__subtitle">My current interests</span>
+
+            <!-- Outer box -->
+            <div class="project__bg">
+                <!-- Inner container (transparent) -->
+                <div class="project__container">
+                <div class="project__data">
+                    <p class="project__description">
+                    My research interests broadly encompass machine learning,
+                    with a current focus on reinforcement learning and online learning
+                    in non-stationary bandit algorithms. I also have prior experience in 
+                    imitation learning, inverse reinforcement learning, and generative modeling.
+                    </p>
+
+                    <div class="project__buttons">
+                    <!-- Scholar button: no color changes here -->
+                    <a 
+                        href="https://scholar.google.com/citations?hl=en&user=4xJ6meUAAAAJ" 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        class="button button--flex button--white scholar-button"
+                    >
+                        Google Scholar <i class="uil uil-graduation-cap"></i>
+                    </a>
+                    
+                    <div class="services__buttons-container">
+                        <button type="button" class="button button--flex button--small button--link services__button">
+                        <i class="uil uil-robot services__icon"></i>
+                        </button>
+                        <button type="button" class="button button--flex button--small button--link services__button">
+                        <i class="uil uil-ninja services__icon"></i>
+                        </button>
+                        <button type="button" class="button button--flex button--small button--link services__button">
+                        <i class="uil uil-brain services__icon"></i>
+                        </button>
+                    </div>
+                    </div>
+
+                <!-- Services modals -->
+                <div class="services__modal">
+                    <div class="services__modal-content">
+                        <h4 class="services__modal-title">Reinforcement Learning</h4>
+                        <i class="uil uil-times services__modal-close"></i>
+                        <ul class="services__modal-services grid">
+                            <li class="services__modal-service">
+                                <p>I like to design models for partially observable environments, algorithms for time-varying settings and, particularly, approaches that learn from expert behavior.</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="services__modal">
+                    <div class="services__modal-content">
+                        <h4 class="services__modal-title">Bandit Algorithms</h4>
+                        <i class="uil uil-times services__modal-close"></i>
+                        <ul class="services__modal-services grid">
+                            <li class="services__modal-service">
+                                <p>I focus on finding solutions for nonstationary models in parametric and non-parametric settings.</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="services__modal">
+                    <div class="services__modal-content">
+                        <h4 class="services__modal-title">Machine Learning</h4>
+                        <i class="uil uil-times services__modal-close"></i>
+                        <ul class="services__modal-services grid">
+                            <li class="services__modal-service">
+                                <p>I am interested in generative modeling and its intersection with reinforcement learning.</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                </div>
+                </div>
+            </div>
+            </section>
+
+            <style>
+            /* --- RESEARCH SECTION BASE STYLES (unchanged) --- */
+
+            #research .section__subtitle {
+            margin-bottom: 0.5rem; 
+            }
+            #research .project__description {
+                font-size: 1.1rem;
+            }
+
+
+            #research .project__bg {
+            width: 100%;
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            border-radius: 8px;
+            /* The next line sets a neutral default background (can be anything),
+                which we’ll override for light/dark just below. */
+            background-color: #f0f0f0; 
+            border: 1px solid currentColor;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            box-sizing: border-box;
+            }
+
+            #research .project__container {
+            background: transparent;
+            margin: 0 auto;
+            padding: 0;
+            max-width: 100%;
+            box-sizing: border-box;
+            }
+
+            #research .project__data {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            }
+
+            #research .project__description {
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            }
+
+            #research .scholar-button {
+            font-size: 1rem;
+            padding: 8px 12px;
+            }
+
+            #research .project__buttons {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            }
+
+            #research .services__buttons-container {
+            display: flex;
+            gap: 8px;
+            }
+
+            #research .services__button {
+            font-size: 1rem;
+            padding: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            }
+
+            #research .services__icon {
+            transition: transform 0.2s;
+            }
+
+            #research .services__icon:hover {
+            animation: jiggle 0.5s infinite;
+            }
+
+            @keyframes jiggle {
+            0%, 100% {
+                transform: rotate(-3deg);
+            }
+            50% {
+                transform: rotate(3deg);
+            }
+            }
+
+         /* --- IMPORTANT: MOBILE-FRIENDLY FIX --- */
+            @media (max-width: 480px) {
+                #research .project__bg {
+                    width: 90%;         /* Slightly narrower than footer */
+                    max-width: 400px;   /* You can adjust this as desired */
+                    margin: 1rem auto;
+                    padding: 1rem;
+                }
+            }
+
+
+            /* 
+            --- THEME OVERRIDES ---
+            If your site toggles a .dark-theme class on <body> for dark mode, 
+            these two blocks set the box background accordingly. 
+            (Adjust the colors as you like.)
+            */
+            body:not(.dark-theme) #research .project__bg {
+            background-color: #5857df !important; /* Purple for light theme */
+            }
+
+
+
+            body.dark-theme #research .project__bg {
+            background-color: #00184b4d !important;    /* Black for dark theme */
+            color: #fff;                          /* Ensure text is visible on black */
+            }
+
+            /* ----- Medium Screens: e.g., up to 768px ----- */
+            @media (max-width: 768px) {
+            #research .services__button {
+                font-size: 0.95rem;
+                padding: 0.4rem;
+            }
+
+            #research .services__icon {
+                font-size: 3rem;
+            }
+
+            #research .services__buttons-container {
+                gap: 1rem;  
+            }
+            }
+
+            /* ----- Small Screens: e.g., up to 480px ----- */
+            @media (max-width: 480px) {
+            #research .services__button {
+                font-size: 0.85rem;
+                padding: 0.1rem 0.1rem;
+            }
+
+            #research .services__icon {
+                font-size: 3rem;
+            }
+
+            #research .services__buttons-container {
+                gap: 0.1rem;
+            }
+            }
+            </style>
+        
+            
+            <!--==================== PUBLICATIONS ====================-->
+            <section class="portfolio section" id="publications">
+                <h2 class="section__title">Publications</h2>
+                <span class="section__subtitle">Most recent work</span>
+              
+                <div class="portfolio__container container swiper-container">
+                  <div class="swiper-wrapper">
+                    
+                    <!--=============== PUBLICATION 1 ===============-->
+                    <div class="portfolio__content grid swiper-slide">
+                      <img
+                        src="assets/img/DAB.png"
+                        alt="Detection Is All You Need"
+                        class="portfolio__img"
+                        oncontextmenu="return false;"
+                      />
+                      <div class="portfolio__data">
+                        <h3 class="portfolio__title">
+                          Detection Is All You Need: A Feasible Optimal Prior-Free Black-Box
+                          Approach For Piecewise Stationary Bandits (Under Review)
+                        </h3>
+                        <p class="portfolio__description">
+                          <span class="highlight-name">Argyrios Gerogiannis</span>,
+                          Yu-Han Huang, Subhonmesh Bose, Venugopal V. Veeravalli
+                        </p>
+                        <a
+                          href="https://arxiv.org/abs/2501.19401"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class="button button--flex button--small portfolio__button"
+                        >
+                          Paper
+                          <i class="uil uil-book-reader button__icon"></i>
+                        </a>
+                      </div>
+                    </div>
+              
+                    <!--=============== PUBLICATION 2 ===============-->
+                    <div class="portfolio__content grid swiper-slide">
+                      <img
+                        src="assets/img/CDBP.png"
+                        alt="Change Detection Based Procedures"
+                        class="portfolio__img"
+                        oncontextmenu="return false;"
+                      />
+                      <div class="portfolio__data">
+                        <h3 class="portfolio__title">
+                          Change Detection-Based Procedures for Piecewise Stationary MABs:
+                          A Modular Approach (Under Review)
+                        </h3>
+                        <p class="portfolio__description">
+                          Yu-Han Huang,
+                          <span class="highlight-name">Argyrios Gerogiannis</span>,
+                          Subhonmesh Bose, Venugopal V. Veeravalli
+                        </p>
+                        <a
+                          href="https://arxiv.org/abs/2501.01291"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class="button button--flex button--small portfolio__button"
+                        >
+                          Paper
+                          <i class="uil uil-book-reader button__icon"></i>
+                        </a>
+                      </div>
+                    </div>
+              
+                    <!--=============== PUBLICATION 3 ===============-->
+                    <div class="portfolio__content grid swiper-slide">
+                      <img
+                        src="assets/img/IsPFBBNSRLFeas.jpg"
+                        alt="Is Prior-Free Black-Box Non-Stationary RL Feasible?"
+                        class="portfolio__img"
+                        oncontextmenu="return false;"
+                      />
+                      <div class="portfolio__data">
+                        <h3 class="portfolio__title">
+                          Is Prior-Free Black-Box Non-Stationary Reinforcement Learning
+                          Feasible? <span class="highlight-name">AISTATS, 2025</span>
+                        </h3>
+                        <p class="portfolio__description">
+                          <span class="highlight-name">Argyrios Gerogiannis</span>,
+                          Yu-Han Huang, Venugopal V. Veeravalli
+                        </p>
+                        <a
+                          href="https://arxiv.org/abs/2410.13772"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class="button button--flex button--small portfolio__button"
+                        >
+                          Paper
+                          <i class="uil uil-book-reader button__icon"></i>
+                        </a>
+                      </div>
+                    </div>
+              
+                    <!--=============== PUBLICATION 4 ===============-->
+                    <div class="portfolio__content grid swiper-slide">
+                      <img
+                        src="assets/img/track-mdp.png"
+                        alt="Track-MDP: RL for Target Tracking"
+                        class="portfolio__img"
+                        oncontextmenu="return false;"
+                      />
+                      <div class="portfolio__data">
+                        <h3 class="portfolio__title">
+                          Track-MDP: Reinforcement Learning for Target Tracking with
+                          Controlled Sensing <span class="highlight-name">ICASSP, 2025</span>
+                        </h3>
+                        <p class="portfolio__description">
+                          Adarsh M. Subramaniam,
+                          <span class="highlight-name">Argyrios Gerogiannis</span>,
+                          James Z. Hare, Venugopal V. Veeravalli
+                        </p>
+                        <a
+                          href="https://arxiv.org/abs/2407.13995"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class="button button--flex button--small portfolio__button"
+                        >
+                          Paper
+                          <i class="uil uil-book-reader button__icon"></i>
+                        </a>
+                      </div>
+                    </div>
+                    
+                  </div>
+              
+                  <!-- Swiper navigation & pagination (make sure Swiper is included in your project) -->
+                  <div class="swiper-button-next">
+                    <i class="uil uil-angle-right-b swiper-portfolio-icon"></i>
+                  </div>
+                  <div class="swiper-button-prev">
+                    <i class="uil uil-angle-left-b swiper-portfolio-icon"></i>
+                  </div>
+                  <div class="swiper-pagination"></div>
+                </div>
+              </section>
+              
+              <style>
+                /* Custom style for your name */
+                .highlight-name {
+                  font-weight: bold;
+                  color: #7877ff;
+                }
+              </style>
+              
+            <!--==================== ABOUT ====================-->
+            <section class="about section" id="about">
+                <h2 class="section__title">About Me</h2>
+                <span class="section__subtitle">A brief introduction</span>
+
+                <div class="about__container container grid">
+                    <img src="assets/img/about.jpg" alt="" class="about__img">
+
+                    <div class="about__data">
+                        <p class="about__description">I am a PhD candidate in the <b><a href="https://ece.illinois.edu/" target="_blank" rel="noopener noreferrer">Electrical and Computer Engineering</a></b> 
+                            department at the <b><a href="https://illinois.edu/" target="_blank" rel="noopener noreferrer">University of Illinois Urbana-Champaign (UIUC)</a></b>, where I am very fortunate to be advised by 
+                            <b><a href="https://vvv.ece.illinois.edu/" target="_blank" rel="noopener noreferrer">Prof. Venugopal Veeravalli</a></b>. Before that,
+                            I graduated with a Diploma (BSc+MEng) in <b><a href="https://www.ece.upatras.gr/index.php/en/" target="_blank" rel="noopener noreferrer">Electrical and Computer Engineering</a></b> 
+                            from the <b><a href="https://www.upatras.gr/en/" target="_blank" rel="noopener noreferrer">University of Patras</a></b>, at which I had the wonderful opportunity to work with
+                            <b><a href="http://www.ssp.ece.upatras.gr/moustakides/" target="_blank" rel="noopener noreferrer">Prof. George Moustakides</a></b>. For more information, feel 
+                            free to see my <b><a href="assets/pdf/Argy-CV.pdf" target="_blank" rel="noopener noreferrer">CV</a></b>.
+                            <br><br>
+                            If you enjoy linguistics (or are simply confused), my full legal first name is <b>Argyrios</b>. I mostly go by <b>Argyris</b>, 
+                            especially when I visit Greece, due to the weird nature of male Greek names! The anglicized version of my name is <b>Argy</b>, pronounced "R-G", hence the name on this site.
+                            However, I am also privileged to have a <b>secret</b> name. 
+                            I go by all four of my names, but I believe there is a clear winner.
+                        </p>
+                    </div>
+                </div>
+            </section>
+            <style>
+                #about a:link,
+                #about a:visited {
+                    color: #5857df; /* Default link color */
+                    text-decoration: none;
+                }
+            
+                #about a:hover {
+                    color: #7877ff; /* Slightly lighter shade on hover */
+                    text-decoration: underline;
+                }
+            
+                #about a:active {
+                    color: #5857df; /* Active state matches hover color */
+                }
+            </style>
+            
+            
+
+
+            
+            
+<!-- 
+            <section class="qualification section" id="univer">
+                <h2 class="section__title">Education and Work Experience</h2>
+                <span class="section__subtitle">My educational and professional timelines</span>
+
+                <div class="qualification__container container">
+                    <div class="qualification__tabs">
+                        <div class="qualification__button button--flex qualification__active" data-target="#education">
+                            <i class="uil uil-graduation-cap qualification__icon"></i>
+                            Education
+                        </div>
+
+                        <div class="qualification__button button--flex" data-target="#work">
+                            <i class="uil uil-briefcase-alt qualification__icon"></i>
+                            Work
+                        </div>                      
+                    </div>
+
+                    <div class="qualification__sections">
+                        <div class="qualification__content qualification__active" data-content id="education">
+                            <div class="qualification__data">
+>>>>>>> parent of 8537db2 (updated papers)
+                                <div>
+                                    <span class="projects__subtitle"><span class="highlight-name">Argyrios Gerogiannis,</span> Yu-Han Huang, Subhonmesh Bose, Venugopal V. Veeravalli</span>
+                                    <h3 class="projects__title">DAL: A Practical Prior-Free Black-Box Framework for Non-Stationary Bandits (Under Submission)</h3>
+                                    <a href="https://arxiv.org/abs/2501.19401" target="_blank" rel="noopener noreferrer" class="projects__button button button__small">
+                                        Paper <i class="ri-file-text-line"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </article>
+
+                        
+
+                        <article class="projects__card">
+                            <img src="assets/img/CDBP.png" alt="" class="projects__img">
+
+                            <div class="projects__modal">
+                                <div>
+                                    <span class="projects__subtitle">Yu-Han Huang, <span class="highlight-name">Argyrios Gerogiannis,</span> Subhonmesh Bose, Venugopal V. Veeravalli</span>
+                                    <h3 class="projects__title">Detection Augmented Bandit Procedures for Piecewise Stationary MABs: A Modular Approach (Under Submission)</h3>
+                                    <a href="https://arxiv.org/abs/2501.01291" target="_blank" rel="noopener noreferrer" class="projects__button button button__small">
+                                        Paper <i class="ri-file-text-line"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="projects__card">
+                            <img src="assets/img/IsPFBBNSRLFeas.jpg" alt="" class="projects__img">
+
+                            <div class="projects__modal">
+                                <div>
+                                    <span class="projects__subtitle"><span class="highlight-name">Argyrios Gerogiannis,</span>
+                          Yu-Han Huang, Venugopal V. Veeravalli</span>
+                                    <h3 class="projects__title">Is Prior-Free Black-Box Non-Stationary Reinforcement Learning
+                          Feasible? <span class="highlight-name">AISTATS, 2025</span></h3>
+                                    <a href="https://proceedings.mlr.press/v258/gerogiannis25a.html" target="_blank" rel="noopener noreferrer" class="projects__button button button__small">
+                                        Paper <i class="ri-file-text-line"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="projects__card">
+                            <img src="assets/img/track-mdp.png" alt="" class="projects__img">
+
+                            <div class="projects__modal">
+                                <div>
+                                    <span class="projects__subtitle">Adarsh M. Subramaniam, <span class="highlight-name">Argyrios Gerogiannis,</span> James Z. Hare, Venugopal V. Veeravalli</span>
+                                    <h3 class="projects__title">Track-MDP: Reinforcement Learning for Target Tracking with Controlled Sensing <span class="highlight-name">ICASSP, 2025</span></h3>
+                                    <a href="https://ieeexplore.ieee.org/abstract/document/10890122" target="_blank" rel="noopener noreferrer" class="projects__button button button__small">
+                                        Paper <i class="ri-file-text-line"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="projects__card">
+                            <img src="assets/img/track-mdp-pp.png" alt="" class="projects__img">
+
+                            <div class="projects__modal">
+                                <div>
+                                    <span class="projects__subtitle">Adarsh M. Subramaniam, <span class="highlight-name">Argyrios Gerogiannis,</span> James Z. Hare, Venugopal V. Veeravalli</span>
+                                    <h3 class="projects__title">Track-MDP++: RL for Target Tracking with General Controlled Sensing Models <span class="highlight-name">MILCOM, 2025, Workshop on IoT for Adversarial Environments</span></h3>
+                                    <a href="https://milcom2025.ieee-milcom.org/workshop/ws09-5th-international-workshop-internet-things-adversarial-environments/program" target="_blank" rel="noopener noreferrer" class="projects__button button button__small">
+                                        Paper to appear soon<i class="ri-file-text-line"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!--=============== SKILLS ===============-->
+                    <div class="skills__content grid" data-content id="skills">
+                        <div class="skills__area">
+                            <h3 class="skills__title">Research</h3>
+                            <p class="skills__text">I am a PhD candidate in the <b><a href="https://ece.illinois.edu/" target="_blank" rel="noopener noreferrer">Electrical and Computer Engineering</a></b> department at the <b><a href="https://illinois.edu/" target="_blank" rel="noopener noreferrer">University of Illinois Urbana-Champaign</a></b>, where I am advised by <b><a href="https://vvv.ece.illinois.edu/" target="_blank" rel="noopener noreferrer">Prof. Venugopal Veeravalli</a></b>. Before that, I graduated with a Diploma (BSc+MEng) in <b><a href="https://www.ece.upatras.gr/index.php/en/" target="_blank" rel="noopener noreferrer">Electrical and Computer Engineering</a></b> from the <b><a href="https://www.upatras.gr/en/" target="_blank" rel="noopener noreferrer">University of Patras</a></b>, at which I worked with <b><a href="http://www.ssp.ece.upatras.gr/moustakides/" target="_blank" rel="noopener noreferrer">Prof. George Moustakides</a></b>.</p>
+                            <p class="skills__text">My research interests broadly encompass machine learning, with a current focus on practical non-stationary reinforcement learning and large language model reasoning. I have also worked on imitation learning, inverse reinforcement learning and autonomous driving.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!--=============== FOOTER ===============-->
+        <footer class="footer container">
+            <span class="footer__copy">
+                &#169; Argyrios Gerogiannis. All rigths reserved
+            </span>
+        </footer>
+
+        <!--=============== SCROLLREVEAL ===============-->
+        <script src="assets/js/scrollreveal.min.js"></script>
+
+        <!--=============== MAIN JS ===============-->
+        <script src="assets/js/main.js"></script>
+    </body>
+</html>
