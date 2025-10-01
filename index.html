@@ -45,11 +45,16 @@
                 left: 0;
                 width: 100%;
                 height: 100%;
-                background-color: var(--body-color, hsl(207, 40%, 8%));
+                background-color: hsl(207, 40%, 8%); /* Default dark */
                 z-index: 9999;
                 opacity: 1;
                 transition: opacity 0.8s ease-out;
                 pointer-events: none;
+            }
+            
+            /* Light theme loading overlay */
+            html:not(.dark-theme) #loading-overlay {
+                background-color: hsl(207, 100%, 99%) !important;
             }
             
             #loading-overlay.fade-out {
@@ -245,7 +250,7 @@
                                 <img src="assets/img/track-mdp-pp.png" alt="" class="projects__img">
                             </div>
                             <div class="projects__info">
-                                <h3 class="projects__title">Track-MDP++: RL for Target Tracking with General Controlled Sensing Models <span class="highlight-name">MILCOM, 2025, Workshop on IoT for Adversarial Environments</span></h3>
+                                <h3 class="projects__title">Track-MDP++: RL for Target Tracking with General Controlled Sensing Models <span class="highlight-name">MILCOM, 2025, WS09</span></h3>
                                 <p class="projects__authors">Adarsh M. Subramaniam, <span class="highlight-name">Argyrios Gerogiannis,</span> James Z. Hare, Venugopal V. Veeravalli</p>
                                 <a href="https://milcom2025.ieee-milcom.org/workshop/ws09-5th-international-workshop-internet-things-adversarial-environments/program" target="_blank" rel="noopener noreferrer" class="projects__button button button__small">
                                     Paper to appear soon<i class="ri-file-text-line"></i>
