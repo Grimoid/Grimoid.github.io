@@ -732,3 +732,49 @@ body.dark-theme .highlight-name:hover::before {
     margin: 4.5rem 0 2.5rem;
   }
 }
+
+/*=============== ANIMATION FALLBACKS ===============*/
+/* Ensure elements are visible if JavaScript fails */
+.projects__card {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .projects__card {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* Loading state improvements */
+#loading-overlay {
+  pointer-events: none;
+  transition: opacity 0.8s ease-out;
+}
+
+/* Ensure smooth transitions on all devices */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Better performance for animations */
+.projects__card,
+.profile__border,
+.profile__name,
+.profile__profession,
+.profile__social,
+.profile__buttons,
+.filters__content,
+.filters {
+  will-change: transform, opacity;
+}

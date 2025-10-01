@@ -90,33 +90,64 @@ const initializePage = () => {
     setTimeout(fadeOutOverlay, 400);
 };
 
-// Fade out overlay after everything is loaded and theme is applied
-if (document.readyState === 'complete') {
-    initializePage();
-} else {
-    window.addEventListener('load', initializePage);
-}
+// Better page initialization with multiple fallbacks
+const ensurePageInitialized = () => {
+    if (document.readyState === 'complete') {
+        initializePage();
+    } else if (document.readyState === 'interactive') {
+        // DOM ready but resources still loading
+        setTimeout(initializePage, 100);
+    } else {
+        window.addEventListener('load', initializePage);
+        // Fallback in case load event doesn't fire
+        setTimeout(initializePage, 3000);
+    }
+};
+
+ensurePageInitialized();
 
 /*=============== SCROLL REVEAL ANIMATION ===============*/
-const sr = ScrollReveal({
-    origin: 'top',
-    distance: '60px',
-    duration: 2500,
-    delay: 400,
-})
+// Wait for ScrollReveal to be available
+const initScrollReveal = () => {
+    if (typeof ScrollReveal === 'undefined') {
+        setTimeout(initScrollReveal, 100);
+        return;
+    }
+    
+    const sr = ScrollReveal({
+        origin: 'top',
+        distance: '60px',
+        duration: 2500,
+        delay: 400,
+        reset: false
+    })
 
-sr.reveal(`.profile__border`)
-sr.reveal(`.profile__name`, {delay: 500})
-sr.reveal(`.profile__profession`, {delay: 600})
-sr.reveal(`.profile__social`, {delay: 700})
-sr.reveal(`.profile__info-group`, {interval: 100, delay: 700})
-sr.reveal(`.profile__buttons`, {delay: 800})
-sr.reveal(`.filters__content`, {delay: 900})
-sr.reveal(`.filters`, {delay: 1000})
+    sr.reveal(`.profile__border`)
+    sr.reveal(`.profile__name`, {delay: 500})
+    sr.reveal(`.profile__profession`, {delay: 600})
+    sr.reveal(`.profile__social`, {delay: 700})
+    sr.reveal(`.profile__info-group`, {interval: 100, delay: 700})
+    sr.reveal(`.profile__buttons`, {delay: 800})
+    sr.reveal(`.filters__content`, {delay: 900})
+    sr.reveal(`.filters`, {delay: 1000})
+}
+
+// Initialize ScrollReveal when DOM is ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initScrollReveal);
+} else {
+    initScrollReveal();
+}
 
 // Show projects immediately when page loads, not on scroll
 const showProjectsOnLoad = () => {
     const projectCards = document.querySelectorAll('.projects__card');
+    if (projectCards.length === 0) {
+        // Retry if cards not found yet
+        setTimeout(showProjectsOnLoad, 100);
+        return;
+    }
+    
     projectCards.forEach((card, index) => {
         setTimeout(() => {
             card.style.opacity = '1';
@@ -125,29 +156,52 @@ const showProjectsOnLoad = () => {
     });
 };
 
-// Initialize projects to be hidden initially
-document.addEventListener('DOMContentLoaded', () => {
+// Initialize projects to be hidden initially - with better timing
+const initProjectCards = () => {
     const projectCards = document.querySelectorAll('.projects__card');
+    if (projectCards.length === 0) {
+        // Retry if cards not found yet
+        setTimeout(initProjectCards, 100);
+        return;
+    }
+    
     projectCards.forEach(card => {
         card.style.opacity = '0';
         card.style.transform = 'translateY(60px)';
         card.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
     });
-});
+};
 
-// Dynamic image container sizing
+// Better initialization
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initProjectCards);
+} else {
+    initProjectCards();
+}
+
+// Dynamic image container sizing with better error handling
 const adjustImageContainers = () => {
     const images = document.querySelectorAll('.projects__img');
     const containers = document.querySelectorAll('.projects__image-container');
     
-    if (images.length === 0) return;
+    if (images.length === 0) {
+        // Retry if images not found yet
+        setTimeout(adjustImageContainers, 200);
+        return;
+    }
     
     let maxAspectRatio = 0;
     let imagesLoaded = 0;
+    const timeoutId = setTimeout(() => {
+        // Fallback if images take too long to load
+        console.warn('Images taking too long to load, proceeding anyway');
+        showProjectsOnLoad();
+    }, 5000);
     
     const checkAllImagesLoaded = () => {
         imagesLoaded++;
         if (imagesLoaded === images.length) {
+            clearTimeout(timeoutId);
             // Calculate optimal height based on the widest aspect ratio
             images.forEach(img => {
                 const aspectRatio = img.naturalWidth / img.naturalHeight;
@@ -170,10 +224,14 @@ const adjustImageContainers = () => {
     };
     
     images.forEach(img => {
-        if (img.complete) {
+        if (img.complete && img.naturalHeight !== 0) {
             checkAllImagesLoaded();
         } else {
             img.onload = checkAllImagesLoaded;
+            img.onerror = () => {
+                console.warn('Image failed to load:', img.src);
+                checkAllImagesLoaded(); // Continue even if image fails
+            };
         }
     });
 };

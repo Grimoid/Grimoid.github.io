@@ -75,6 +75,24 @@
                     document.body.style.backgroundColor = '#ffffff';
                     document.body.style.color = '#111111';
                 }
+                
+                // Ensure page works even if main.js fails to load
+                window.addEventListener('load', function() {
+                    setTimeout(function() {
+                        const overlay = document.getElementById('loading-overlay');
+                        if (overlay) {
+                            overlay.style.opacity = '0';
+                            setTimeout(() => overlay.remove(), 800);
+                        }
+                        
+                        // Ensure projects are visible
+                        const cards = document.querySelectorAll('.projects__card');
+                        cards.forEach(card => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateY(0)';
+                        });
+                    }, 1000);
+                });
             })();
         </script>
 
@@ -256,9 +274,9 @@
         </footer>
 
         <!--=============== SCROLLREVEAL ===============-->
-        <script src="assets/js/scrollreveal.min.js"></script>
+        <script src="assets/js/scrollreveal.min.js" onerror="console.error('ScrollReveal failed to load')"></script>
 
         <!--=============== MAIN JS ===============-->
-        <script src="assets/js/main.js"></script>
+        <script src="assets/js/main.js" onerror="console.error('Main JS failed to load')"></script>
     </body>
 </html>
