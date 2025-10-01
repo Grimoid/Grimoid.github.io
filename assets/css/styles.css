@@ -52,12 +52,18 @@
   margin: 0;
 }
 
+html {
+  min-height: 100vh;
+  background-color: var(--body-color);
+}
+
 body {
   font-family: var(--body-font);
   font-size: var(--normal-font-size);
   background-color: var(--body-color);
   color: var(--text-color);
   transition: .3s; /* For animation dark mode */
+  min-height: 100vh;
 }
 
 h1, h2, h3 {
@@ -361,108 +367,152 @@ body.dark-theme {
 
 /*=============== PROJECTS ===============*/
 .projects__card {
-  position: relative;
+  background-color: var(--container-color);
   border-radius: 1rem;
+  overflow: hidden;
+  transition: transform .3s ease, box-shadow .3s ease;
+  box-shadow: 0 2px 8px hsla(var(--hue), 24%, 15%, .15);
+}
+
+.projects__card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px hsla(var(--hue), 24%, 15%, .25);
+}
+
+.projects__image-container {
+  width: 100%;
+  height: 280px;
+  overflow: hidden;
+  background-color: var(--container-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.projects__img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+  transition: transform .3s ease;
+}
+
+.projects__card:hover .projects__img {
+  transform: scale(1.05);
+}
+
+.projects__info {
+  padding: 1.25rem;
+}
+
+.projects__title {
+  font-size: var(--normal-font-size);
+  font-weight: 600;
+  color: var(--title-color);
+  margin-bottom: .75rem;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
   overflow: hidden;
 }
 
-/* Let each project card size to the image's intrinsic aspect ratio
-   Instead of forcing a fixed height, make images fluid in width and
-   keep height:auto so cards follow each image shape. */
-.projects__card img,
-.projects__img {
-  width: 100%;
-  height: auto;
-  display: block;
+.projects__authors {
+  font-size: var(--small-font-size);
+  color: var(--text-color);
+  margin-bottom: 1rem;
+  line-height: 1.5;
 }
 
-/* When we lock images to the reference size (largest/first image),
-   apply this class and set --project-img-height on :root (px). */
-.projects__img.locked-size {
-  height: var(--project-img-height, auto);
-  object-fit: contain; /* show the full image without cropping */
-  display: block;
-  background-color: var(--body-color); /* letterbox background for contained images */
-}
-
-.projects__modal {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  bottom: -100%;
-  left: 0;
-  background: linear-gradient(180deg, 
-              hsla(var(--hue), 24%, 40%, .3) 0%, 
-              hsla(var(--hue), 24%, 4%, 1) 95%);
-  display: grid;
-  align-items: flex-end;
-  padding: 1.5rem 1.25rem;
-  transition: .3s;
-}
-
-.projects__subtitle, 
-.projects__title {
-  color: #fff;
-}
-
-.projects__subtitle {
-  font-size: var(--smaller-font-size);
-}
-
-/* Highlight a name inside project subtitles (scoped to project modal) */
-.projects__modal .highlight-name {
-  display: inline-block; /* allow pseudo-element positioning */
+/* Highlight name styling - different for light and dark modes */
+.highlight-name {
+  display: inline-block;
   position: relative;
-  z-index: 1;
-  color: #fff; /* stronger contrast */
+  z-index: 100;
+  color: var(--first-color);
   font-weight: 700;
-  padding: .05rem .45rem;
-  border-radius: .35rem;
-  background-color: rgba(255, 255, 255, 0.119);
+  padding: .05rem .3rem;
+  border-radius: .25rem;
+  background-color: hsla(var(--hue), var(--sat), var(--lig), .1);
   transition: .2s;
-  /* soft text shadow to lift text from the background */
-  text-shadow: 0 6px 18px rgba(0,0,0,0.55), 0 0 10px rgba(255,255,255,0.02);
+  margin: 0 1px;
 }
 
-/* blurred glow behind the highlighted name */
-.projects__modal .highlight-name::before {
+/* Light mode highlight - simple style without glow */
+body:not(.dark-theme) .highlight-name {
+  color: var(--first-color);
+  background-color: hsla(var(--hue), var(--sat), var(--lig), .15);
+  text-shadow: none;
+  padding: .05rem .25rem;
+  margin: 0;
+}
+
+body:not(.dark-theme) .highlight-name:hover {
+  background-color: hsla(var(--hue), var(--sat), var(--lig), .25);
+  transform: translateY(-1px);
+}
+
+/* Dark mode highlight - with glow effect */
+body.dark-theme .highlight-name {
+  color: var(--title-color);
+  background-color: rgba(255, 255, 255, 0.1);
+  text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  padding: .05rem .35rem;
+  margin: 0 1px;
+}
+
+/* Blurred glow behind the highlighted name - dark mode only */
+body.dark-theme .highlight-name::before {
   content: "";
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: calc(100% + 18px);
-  height: calc(100% + 14px);
+  width: calc(100% + 16px);
+  height: calc(100% + 12px);
   background: var(--first-color);
   opacity: .3;
-  filter: blur(10px);
-  border-radius: .6rem;
+  filter: blur(8px);
+  border-radius: .5rem;
   z-index: -1;
   pointer-events: none;
 }
 
-/* slightly stronger glow on hover */
-.projects__modal .highlight-name:hover::before {
-  opacity: .18;
-  filter: blur(12px);
+/* Slightly stronger glow on hover - dark mode only */
+body.dark-theme .highlight-name:hover::before {
+  opacity: .4;
+  filter: blur(10px);
+  width: calc(100% + 18px);
+  height: calc(100% + 14px);
 }
 
+.highlight-name:hover {
+  transform: translateY(-1px);
+}
 
-.projects__title {
-  font-size: var(--h3-font-size);
-  margin-bottom: .75rem;
+/* Ensure parent containers don't clip the glow */
+.projects__info,
+.projects__title,
+.projects__authors {
+  overflow: visible;
+  position: relative;
+  z-index: 1;
+}
+
+.projects__card {
+  overflow: visible;
+  position: relative;
+}
+
+.projects__image-container {
+  overflow: hidden; /* Keep this for images only */
 }
 
 .projects__button {
-  padding: .5rem;
-}
-
-.projects__card:hover .projects__modal {
-  bottom: 0;
-  /* darken the overlay when visible so content pops more */
-  background: linear-gradient(180deg,
-              hsla(var(--hue), 24%, 20%, .65) 0%,
-              hsla(var(--hue), 24%, 4%, 1) 95%);
+  padding: .5rem .75rem;
+  font-size: var(--small-font-size);
 }
 
 /*=============== SKILLS ===============*/
@@ -594,8 +644,9 @@ body.dark-theme {
 /* For medium devices */
 @media screen and (min-width: 576px) {
   .projects__content {
-    grid-template-columns: 332px;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     justify-content: center;
+    gap: 1.5rem;
   }
 
   .filters__content {
@@ -606,7 +657,8 @@ body.dark-theme {
 
 @media screen and (min-width: 776px) {
   .projects__content {
-    grid-template-columns: repeat(2, 332px);
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 2rem;
   }
 
   /* Make skills/research content span the full width beneath the tabs
@@ -667,10 +719,8 @@ body.dark-theme {
   }
 
   .projects__content {
-    gap: 2rem 3rem;
-  }
-  .projects__modal {
-    padding: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: 2.5rem;
   }
 
   .skills__title {

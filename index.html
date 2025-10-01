@@ -10,12 +10,83 @@
         <!--=============== REMIX ICONS ===============-->
         <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
 
+        <!-- Initial dark overlay to prevent flash -->
+        <style>
+            /* Set dark theme as default immediately - ensure full viewport coverage */
+            html, body {
+                min-height: 100vh;
+                margin: 0;
+                padding: 0;
+            }
+            
+            html.dark-theme, body.dark-theme {
+                background-color: hsl(207, 40%, 8%) !important;
+                color: hsl(207, 12%, 95%) !important;
+            }
+            
+            html:not(.dark-theme), body:not(.dark-theme) {
+                background-color: hsl(207, 100%, 99%) !important;
+                color: hsl(207, 12%, 15%) !important;
+            }
+            
+            /* Ensure root html always covers full viewport */
+            html {
+                background-color: hsl(207, 40%, 8%); /* Default to dark */
+            }
+            
+            html:not(.dark-theme) {
+                background-color: hsl(207, 100%, 99%) !important; /* White for light theme */
+            }
+            
+            /* Loading overlay - adapts to theme */
+            #loading-overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: var(--body-color, hsl(207, 40%, 8%));
+                z-index: 9999;
+                opacity: 1;
+                transition: opacity 0.8s ease-out;
+                pointer-events: none;
+            }
+            
+            #loading-overlay.fade-out {
+                opacity: 0;
+            }
+        </style>
+
+        <script>
+            // Set dark theme by default immediately
+            (function() {
+                const savedTheme = localStorage.getItem('selected-theme');
+                const savedIcon = localStorage.getItem('selected-icon');
+                
+                // Default to dark theme unless user explicitly chose light
+                if (!savedTheme || savedTheme === 'dark') {
+                    document.documentElement.classList.add('dark-theme');
+                    document.body.classList.add('dark-theme');
+                    localStorage.setItem('selected-theme', 'dark');
+                    localStorage.setItem('selected-icon', 'ri-moon-line');
+                } else if (savedTheme === 'light') {
+                    document.documentElement.style.backgroundColor = '#ffffff';
+                    document.documentElement.style.color = '#111111';
+                    document.body.style.backgroundColor = '#ffffff';
+                    document.body.style.color = '#111111';
+                }
+            })();
+        </script>
+
         <!--=============== CSS ===============-->
         <link rel="stylesheet" href="assets/css/styles.css">
 
         <title>Argyrios Gerogiannis</title>
     </head>
     <body>
+        <!-- Loading overlay to prevent flash -->
+        <div id="loading-overlay"></div>
+        
         <!--=============== HEADER ===============-->
         <header class="profile container">
             <!-- Theme button -->
@@ -100,77 +171,67 @@
                     <!--=============== PROJECTS ===============-->
                     <div class="projects__content grid filters__active" data-content id="projects">
                         <article class="projects__card">
-                            <!-- Insert your image in a rectangular format (Ex: 600 x 400, 1000 x 800, 1200 x 1000, etc) -->
-                            <img src="assets/img/DAL.png" alt="" class="projects__img">
-
-                            <div class="projects__modal">
-                                <div>
-                                    <span class="projects__subtitle"><span class="highlight-name">Argyrios Gerogiannis,</span> Yu-Han Huang, Subhonmesh Bose, Venugopal V. Veeravalli</span>
-                                    <h3 class="projects__title">DAL: A Practical Prior-Free Black-Box Framework for Non-Stationary Bandits (Under Submission)</h3>
-                                    <a href="https://arxiv.org/abs/2501.19401" target="_blank" rel="noopener noreferrer" class="projects__button button button__small">
-                                        Paper <i class="ri-file-text-line"></i>
-                                    </a>
-                                </div>
+                            <div class="projects__image-container">
+                                <img src="assets/img/DAL.png" alt="" class="projects__img">
                             </div>
-                        </article>
-
-                        
-
-                        <article class="projects__card">
-                            <img src="assets/img/CDBP.png" alt="" class="projects__img">
-
-                            <div class="projects__modal">
-                                <div>
-                                    <span class="projects__subtitle">Yu-Han Huang, <span class="highlight-name">Argyrios Gerogiannis,</span> Subhonmesh Bose, Venugopal V. Veeravalli</span>
-                                    <h3 class="projects__title">Detection Augmented Bandit Procedures for Piecewise Stationary MABs: A Modular Approach (Under Submission)</h3>
-                                    <a href="https://arxiv.org/abs/2501.01291" target="_blank" rel="noopener noreferrer" class="projects__button button button__small">
-                                        Paper <i class="ri-file-text-line"></i>
-                                    </a>
-                                </div>
+                            <div class="projects__info">
+                                <h3 class="projects__title">DAL: A Practical Prior-Free Black-Box Framework for Non-Stationary Bandits (Under Submission)</h3>
+                                <p class="projects__authors"><span class="highlight-name">Argyrios Gerogiannis,</span> Yu-Han Huang, Subhonmesh Bose, Venugopal V. Veeravalli</p>
+                                <a href="https://arxiv.org/abs/2501.19401" target="_blank" rel="noopener noreferrer" class="projects__button button button__small">
+                                    Paper <i class="ri-file-text-line"></i>
+                                </a>
                             </div>
                         </article>
 
                         <article class="projects__card">
-                            <img src="assets/img/IsPFBBNSRLFeas.jpg" alt="" class="projects__img">
-
-                            <div class="projects__modal">
-                                <div>
-                                    <span class="projects__subtitle"><span class="highlight-name">Argyrios Gerogiannis,</span>
-                          Yu-Han Huang, Venugopal V. Veeravalli</span>
-                                    <h3 class="projects__title">Is Prior-Free Black-Box Non-Stationary Reinforcement Learning
-                          Feasible? <span class="highlight-name">AISTATS, 2025</span></h3>
-                                    <a href="https://proceedings.mlr.press/v258/gerogiannis25a.html" target="_blank" rel="noopener noreferrer" class="projects__button button button__small">
-                                        Paper <i class="ri-file-text-line"></i>
-                                    </a>
-                                </div>
+                            <div class="projects__image-container">
+                                <img src="assets/img/CDBP.png" alt="" class="projects__img">
+                            </div>
+                            <div class="projects__info">
+                                <h3 class="projects__title">Detection Augmented Bandit Procedures for Piecewise Stationary MABs: A Modular Approach (Under Submission)</h3>
+                                <p class="projects__authors">Yu-Han Huang, <span class="highlight-name">Argyrios Gerogiannis,</span> Subhonmesh Bose, Venugopal V. Veeravalli</p>
+                                <a href="https://arxiv.org/abs/2501.01291" target="_blank" rel="noopener noreferrer" class="projects__button button button__small">
+                                    Paper <i class="ri-file-text-line"></i>
+                                </a>
                             </div>
                         </article>
 
                         <article class="projects__card">
-                            <img src="assets/img/track-mdp.png" alt="" class="projects__img">
-
-                            <div class="projects__modal">
-                                <div>
-                                    <span class="projects__subtitle">Adarsh M. Subramaniam, <span class="highlight-name">Argyrios Gerogiannis,</span> James Z. Hare, Venugopal V. Veeravalli</span>
-                                    <h3 class="projects__title">Track-MDP: Reinforcement Learning for Target Tracking with Controlled Sensing <span class="highlight-name">ICASSP, 2025</span></h3>
-                                    <a href="https://ieeexplore.ieee.org/abstract/document/10890122" target="_blank" rel="noopener noreferrer" class="projects__button button button__small">
-                                        Paper <i class="ri-file-text-line"></i>
-                                    </a>
-                                </div>
+                            <div class="projects__image-container">
+                                <img src="assets/img/IsPFBBNSRLFeas.jpg" alt="" class="projects__img">
+                            </div>
+                            <div class="projects__info">
+                                <h3 class="projects__title">Is Prior-Free Black-Box Non-Stationary Reinforcement Learning Feasible? <span class="highlight-name">AISTATS, 2025</span></h3>
+                                <p class="projects__authors"><span class="highlight-name">Argyrios Gerogiannis,</span> Yu-Han Huang, Venugopal V. Veeravalli</p>
+                                <a href="https://proceedings.mlr.press/v258/gerogiannis25a.html" target="_blank" rel="noopener noreferrer" class="projects__button button button__small">
+                                    Paper <i class="ri-file-text-line"></i>
+                                </a>
                             </div>
                         </article>
 
                         <article class="projects__card">
-                            <img src="assets/img/track-mdp-pp.png" alt="" class="projects__img">
+                            <div class="projects__image-container">
+                                <img src="assets/img/track-mdp.png" alt="" class="projects__img">
+                            </div>
+                            <div class="projects__info">
+                                <h3 class="projects__title">Track-MDP: Reinforcement Learning for Target Tracking with Controlled Sensing <span class="highlight-name">ICASSP, 2025</span></h3>
+                                <p class="projects__authors">Adarsh M. Subramaniam, <span class="highlight-name">Argyrios Gerogiannis,</span> James Z. Hare, Venugopal V. Veeravalli</p>
+                                <a href="https://ieeexplore.ieee.org/abstract/document/10890122" target="_blank" rel="noopener noreferrer" class="projects__button button button__small">
+                                    Paper <i class="ri-file-text-line"></i>
+                                </a>
+                            </div>
+                        </article>
 
-                            <div class="projects__modal">
-                                <div>
-                                    <span class="projects__subtitle">Adarsh M. Subramaniam, <span class="highlight-name">Argyrios Gerogiannis,</span> James Z. Hare, Venugopal V. Veeravalli</span>
-                                    <h3 class="projects__title">Track-MDP++: RL for Target Tracking with General Controlled Sensing Models <span class="highlight-name">MILCOM, 2025, Workshop on IoT for Adversarial Environments</span></h3>
-                                    <a href="https://milcom2025.ieee-milcom.org/workshop/ws09-5th-international-workshop-internet-things-adversarial-environments/program" target="_blank" rel="noopener noreferrer" class="projects__button button button__small">
-                                        Paper to appear soon<i class="ri-file-text-line"></i>
-                                    </a>
-                                </div>
+                        <article class="projects__card">
+                            <div class="projects__image-container">
+                                <img src="assets/img/track-mdp-pp.png" alt="" class="projects__img">
+                            </div>
+                            <div class="projects__info">
+                                <h3 class="projects__title">Track-MDP++: RL for Target Tracking with General Controlled Sensing Models <span class="highlight-name">MILCOM, 2025, Workshop on IoT for Adversarial Environments</span></h3>
+                                <p class="projects__authors">Adarsh M. Subramaniam, <span class="highlight-name">Argyrios Gerogiannis,</span> James Z. Hare, Venugopal V. Veeravalli</p>
+                                <a href="https://milcom2025.ieee-milcom.org/workshop/ws09-5th-international-workshop-internet-things-adversarial-environments/program" target="_blank" rel="noopener noreferrer" class="projects__button button button__small">
+                                    Paper to appear soon<i class="ri-file-text-line"></i>
+                                </a>
                             </div>
                         </article>
                     </div>
