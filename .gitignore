@@ -1,0 +1,14 @@
+# Local backups and working artifacts
+/backups/
+/.chrome-preview-portrait/
+/.chrome-preview-portrait2/
+/_preview-portrait.png
+/CV_tex/
+/argy_CV (1).pdf
+
+# Unpublished paper artwork
+/assets/img/DARLING.png
+/assets/img/LEAF.png
+
+# Duplicate local CV filename; the published copy is assets/pdf/argy-CV.pdf
+/assets/pdf/argy_CV.pdf

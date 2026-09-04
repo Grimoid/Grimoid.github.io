@@ -1,11 +1,20 @@
 <!DOCTYPE html>
-    <html lang="en">
+<html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Argyrios Gerogiannis is a PhD candidate in ECE at UIUC working on reinforcement learning, LLM and multimodal reasoning, and post-training methods.">
+        <meta name="theme-color" content="#101722">
+        <meta property="og:title" content="Argyrios Gerogiannis">
+        <meta property="og:description" content="PhD candidate in ECE at UIUC. Work in reinforcement learning, LLM and multimodal reasoning, and post-training methods.">
+        <meta property="og:type" content="website">
 
         <!--=============== FAVICON ===============-->
         <link rel="shortcut icon" href="assets/img/icon.png" type="image/x-icon">
+
+        <!--=============== FONT CONNECTIONS ===============-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         
         <!--=============== REMIX ICONS ===============-->
         <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
@@ -19,23 +28,26 @@
                 padding: 0;
             }
             
-            html.dark-theme, body.dark-theme {
-                background-color: hsl(207, 40%, 8%) !important;
+            html.dark-theme,
+            html.dark-theme body,
+            body.dark-theme {
+                background-color: hsl(218, 24%, 8%) !important;
                 color: hsl(207, 12%, 95%) !important;
             }
             
-            html:not(.dark-theme), body:not(.dark-theme) {
-                background-color: hsl(207, 100%, 99%) !important;
+            html:not(.dark-theme),
+            html:not(.dark-theme) body {
+                background-color: hsl(42, 35%, 98%) !important;
                 color: hsl(207, 12%, 15%) !important;
             }
             
             /* Ensure root html always covers full viewport */
             html {
-                background-color: hsl(207, 40%, 8%); /* Default to dark */
+                background-color: hsl(218, 24%, 8%); /* Default to dark */
             }
             
             html:not(.dark-theme) {
-                background-color: hsl(207, 100%, 99%) !important; /* White for light theme */
+                background-color: hsl(42, 35%, 98%) !important;
             }
             
             /* Loading overlay - adapts to theme */
@@ -45,7 +57,7 @@
                 left: 0;
                 width: 100%;
                 height: 100%;
-                background-color: hsl(207, 40%, 8%); /* Default dark */
+                background-color: hsl(218, 24%, 8%); /* Default dark */
                 z-index: 9999;
                 opacity: 1;
                 transition: opacity 0.8s ease-out;
@@ -54,7 +66,7 @@
             
             /* Light theme loading overlay */
             html:not(.dark-theme) #loading-overlay {
-                background-color: hsl(207, 100%, 99%) !important;
+                background-color: hsl(42, 35%, 98%) !important;
             }
             
             #loading-overlay.fade-out {
@@ -63,23 +75,14 @@
         </style>
 
         <script>
-            // Set dark theme by default immediately
+            // Set the theme before CSS paints. Keep this script head-safe:
+            // document.body does not exist yet here.
             (function() {
                 const savedTheme = localStorage.getItem('selected-theme');
-                const savedIcon = localStorage.getItem('selected-icon');
+                const theme = savedTheme === 'light' ? 'light' : 'dark';
                 
-                // Default to dark theme unless user explicitly chose light
-                if (!savedTheme || savedTheme === 'dark') {
-                    document.documentElement.classList.add('dark-theme');
-                    document.body.classList.add('dark-theme');
-                    localStorage.setItem('selected-theme', 'dark');
-                    localStorage.setItem('selected-icon', 'ri-moon-line');
-                } else if (savedTheme === 'light') {
-                    document.documentElement.style.backgroundColor = '#ffffff';
-                    document.documentElement.style.color = '#111111';
-                    document.body.style.backgroundColor = '#ffffff';
-                    document.body.style.color = '#111111';
-                }
+                document.documentElement.classList.toggle('dark-theme', theme === 'dark');
+                document.documentElement.dataset.theme = theme;
                 
                 // Ensure page works even if main.js fails to load
                 window.addEventListener('load', function() {
@@ -89,13 +92,6 @@
                             overlay.style.opacity = '0';
                             setTimeout(() => overlay.remove(), 800);
                         }
-                        
-                        // Ensure projects are visible
-                        const cards = document.querySelectorAll('.projects__card');
-                        cards.forEach(card => {
-                            card.style.opacity = '1';
-                            card.style.transform = 'translateY(0)';
-                        });
                     }, 1000);
                 });
             })();
@@ -109,177 +105,288 @@
     <body>
         <!-- Loading overlay to prevent flash -->
         <div id="loading-overlay"></div>
+        <div class="neural-backdrop" aria-hidden="true"></div>
+        <canvas class="neural-field" id="neural-field" aria-hidden="true"></canvas>
         
-        <!--=============== HEADER ===============-->
-        <header class="profile container">
-            <!-- Theme button -->
-            <i class="ri-moon-line change-theme" id="theme-button"></i>
-
-            <div class="profile__container grid">
-                <div class="profile__data">
-                    <div class="profile__border">
-                        <div class="profile__perfil">
-                            <!-- Insert your image, according to the example size of the portfolio -->
-                            <img src="assets/img/me.png" alt="">
-                        </div>
-                    </div>
-
-                    <h2 class="profile__name">Argyrios (Argy) Gerogiannis</h2>
-                    <h3 class="profile__profession">PhD Candidate in ECE at UIUC</h3>
-
-                    <ul class="profile__social">
-                        <a href="mailto:argyrger@gmail.com" class="profile__social-link">
-                            <i class="ri-mail-send-line"></i>
-                        </a>
-                        <a href="https://www.linkedin.com/in/argyrger/" target="_blank" class="profile__social-link">
-                            <i class="ri-linkedin-box-line"></i>
-                        </a>
-                        <a href="https://github.com/Grimoid" target="_blank" class="profile__social-link">
-                            <i class="ri-github-line"></i>
-                        </a>
-                    </ul>
+        <header class="site-header container">
+            <nav class="site-nav is-expanded" aria-label="Primary navigation">
+                <a href="#" class="site-nav__mark" aria-label="Argyrios Gerogiannis - back to top">
+                    <span class="site-nav__initials" aria-hidden="true">AG</span>
+                    <span class="site-nav__name" aria-hidden="true">ARGYRIOS GEROGIANNIS</span>
+                </a>
+                <div class="site-nav__links">
+                    <a href="#papers">Papers</a>
                 </div>
+                <button class="change-theme" id="theme-button" type="button" aria-label="Switch to light theme">
+                    <i class="ri-sun-line" aria-hidden="true"></i>
+                </button>
+            </nav>
 
-                <!-- <div class="profile__info grid">
-                    <div class="profile__info-group">
-                        <h3 class="profile__info-number">7</h3>
-                        <p class="profile__info-description">
-                            Years of <br> work
-                        </p>
-                    </div>
-                    <div class="profile__info-group">
-                        <h3 class="profile__info-number">+124</h3>
-                        <p class="profile__info-description">
-                            Completed <br> projects
-                        </p>
-                    </div>
-                    <div class="profile__info-group">
-                        <h3 class="profile__info-number">96</h3>
-                        <p class="profile__info-description">Satisfied <br> customers</p>
-                    </div>
-                </div> -->
+            <section class="hero">
+                <div class="hero__content">
+                    <p class="hero__kicker">PhD Candidate, ECE at UIUC</p>
+                    <h1>Hi, I'm Argy.</h1>
+                    <p class="hero__summary">My research focuses on reinforcement learning, post-training methods for LLMs and multimodal models, and reasoning in language and multimodal systems.</p>
 
-                <div class="profile__buttons">
-                    <!-- Insert your CV (match Google Scholar small gray style) -->
-                    <a href="assets/pdf/argy-CV.pdf" target="_blank" rel="noopener noreferrer" class="button button__small button__gray">
-                        <i class="ri-download-line"></i>
-                        Download CV
-                    </a>
+                    <div class="hero__background">
+                        <p>I am a PhD candidate in <a href="https://ece.illinois.edu/" target="_blank" rel="noopener noreferrer">Electrical and Computer Engineering</a> at the <a href="https://illinois.edu/" target="_blank" rel="noopener noreferrer">University of Illinois Urbana-Champaign</a>, advised by <a href="https://vvv.ece.illinois.edu/" target="_blank" rel="noopener noreferrer">Prof. Venugopal V. Veeravalli</a>. Previously, I earned a Diploma (BSc+MSc) in Electrical and Computer Engineering from the <a href="https://www.upatras.gr/en/" target="_blank" rel="noopener noreferrer">University of Patras</a>, where I worked with <a href="http://www.ssp.ece.upatras.gr/moustakides/" target="_blank" rel="noopener noreferrer">Prof. George Moustakides</a>. As an intern, I worked as an AI Research Intern at <a href="https://www.netradyne.com/" target="_blank" rel="noopener noreferrer">Netradyne</a>, developing reinforcement learning methods for autonomous driving, and as a Machine Learning Engineer Intern at <a href="https://www.uber.com/" target="_blank" rel="noopener noreferrer">Uber</a>, working on transfer learning and reinforcement learning for fraud decision-making.</p>
+                    </div>
 
-                    <div class="profile__buttons-small">
-                        <!-- Single small button linking to Google Scholar (replace USER_ID with your profile id) -->
-                        <a href="https://scholar.google.com/citations?hl=en&user=4xJ6meUAAAAJ" target="_blank" class="button button__small button__gray" title="Google Scholar">
-                            <i class="ri-book-open-line"></i>
-                            Google Scholar
+                    <div class="hero__actions" aria-label="Profile links">
+                        <a href="assets/pdf/argy-CV.pdf" target="_blank" rel="noopener noreferrer" class="button">
+                            <i class="ri-download-line" aria-hidden="true"></i>
+                            Curriculum Vitae
                         </a>
                     </div>
                 </div>
-            </div>
+
+                <aside class="hero__panel" aria-label="Quick profile">
+                    <div class="hero__portrait">
+                        <img src="assets/img/me.png" alt="Argyrios Gerogiannis" fetchpriority="high" decoding="async">
+                    </div>
+                    <div class="hero__identity">
+                        <h2>Argyrios (Argy) Gerogiannis</h2>
+                    </div>
+                    <div class="hero__socials">
+                        <a href="mailto:argyrger@gmail.com" aria-label="Email Argyrios Gerogiannis">
+                            <i class="ri-mail-send-line" aria-hidden="true"></i>
+                            <span>Email</span>
+                        </a>
+                        <a href="https://scholar.google.com/citations?hl=en&user=4xJ6meUAAAAJ" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar profile">
+                            <svg class="social-icon social-icon--scholar" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                                <path d="M2.5 8.5 12 3l9.5 5.5L12 14 2.5 8.5Z"></path>
+                                <path d="M6.5 11v4.1c0 1.7 2.5 3.2 5.5 3.2s5.5-1.5 5.5-3.2V11"></path>
+                                <path d="M21.5 8.7v6"></path>
+                            </svg>
+                            <span>Google Scholar</span>
+                        </a>
+                        <a href="https://www.linkedin.com/in/argyrger/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
+                            <i class="ri-linkedin-box-line" aria-hidden="true"></i>
+                            <span>LinkedIn</span>
+                        </a>
+                        <a href="https://github.com/Grimoid" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
+                            <i class="ri-github-line" aria-hidden="true"></i>
+                            <span>GitHub</span>
+                        </a>
+                    </div>
+                </aside>
+            </section>
         </header>
 
-        <!--=============== MAIN ===============-->
         <main class="main">
-            <section class="filters container">
-                <!--=============== FILTERS TABS ===============-->
-                <ul class="filters__content">
-                    <button class="filters__button filter-tab-active" data-target="#projects">
-                        Publications
-                    </button>
-                    <button class="filters__button" data-target="#skills">
-                        Research
-                    </button>
-                </ul>
+            <section class="page-section container" id="papers">
+                <div class="section-heading">
+                    <p>Papers</p>
+                    <h2>Publications and manuscripts</h2>
+                </div>
 
-                <div class="filters__sections">
-                    <!--=============== PROJECTS ===============-->
-                    <div class="projects__content grid filters__active" data-content id="projects">
-                        <article class="projects__card">
-                            <div class="projects__image-container">
-                                <img src="assets/img/DAL.png" alt="" class="projects__img">
-                            </div>
-                            <div class="projects__info">
-                                <h3 class="projects__title">DAL: A Practical Prior-Free Black-Box Framework for Non-Stationary Bandits (Under Submission)</h3>
-                                <p class="projects__authors"><span class="highlight-name">Argyrios Gerogiannis,</span> Yu-Han Huang, Subhonmesh Bose, Venugopal V. Veeravalli</p>
-                                <a href="https://arxiv.org/abs/2501.19401" target="_blank" rel="noopener noreferrer" class="projects__button button button__small">
-                                    Paper <i class="ri-file-text-line"></i>
-                                </a>
+                <div class="paper-group">
+                    <h3>Publications</h3>
+                    <div class="paper-list">
+                        <article class="paper-card">
+                            <div class="paper-card__body">
+                                <div class="paper-card__topline">
+                                    <span>ICML 2026</span>
+                                    <span>Bandits</span>
+                                </div>
+                                <h3>DAL: A Practical Prior-Free Black-Box Framework for Piecewise Stationary Bandits</h3>
+                                <p class="paper-card__authors"><b>Argyrios Gerogiannis</b>, Yu-Han Huang, Subhonmesh Bose, Venugopal V. Veeravalli</p>
+                                <a href="https://arxiv.org/pdf/2501.19401" target="_blank" rel="noopener noreferrer">Paper</a>
+                                <p class="paper-card__venue">International Conference on Machine Learning, 2026</p>
                             </div>
                         </article>
 
-                        <article class="projects__card">
-                            <div class="projects__image-container">
-                                <img src="assets/img/CDBP.png" alt="" class="projects__img">
-                            </div>
-                            <div class="projects__info">
-                                <h3 class="projects__title">Detection Augmented Bandit Procedures for Piecewise Stationary MABs: A Modular Approach (Under Submission)</h3>
-                                <p class="projects__authors">Yu-Han Huang, <span class="highlight-name">Argyrios Gerogiannis,</span> Subhonmesh Bose, Venugopal V. Veeravalli</p>
-                                <a href="https://arxiv.org/abs/2501.01291" target="_blank" rel="noopener noreferrer" class="projects__button button button__small">
-                                    Paper <i class="ri-file-text-line"></i>
-                                </a>
-                            </div>
-                        </article>
-
-                        <article class="projects__card">
-                            <div class="projects__image-container">
-                                <img src="assets/img/IsPFBBNSRLFeas.jpg" alt="" class="projects__img">
-                            </div>
-                            <div class="projects__info">
-                                <h3 class="projects__title">Is Prior-Free Black-Box Non-Stationary Reinforcement Learning Feasible? <span class="highlight-name">AISTATS, 2025</span></h3>
-                                <p class="projects__authors"><span class="highlight-name">Argyrios Gerogiannis,</span> Yu-Han Huang, Venugopal V. Veeravalli</p>
-                                <a href="https://proceedings.mlr.press/v258/gerogiannis25a.html" target="_blank" rel="noopener noreferrer" class="projects__button button button__small">
-                                    Paper <i class="ri-file-text-line"></i>
-                                </a>
+                        <article class="paper-card">
+                            <div class="paper-card__body">
+                                <div class="paper-card__topline">
+                                    <span>EMNLP 2026</span>
+                                    <span>Post-training</span>
+                                </div>
+                                <h3>LEAF: Growing Trees Without Branching for Speech-Aware Large Language Model Post-Training</h3>
+                                <p class="paper-card__authors"><b>Argyrios Gerogiannis</b>, Yekaterina Yegorova, Mark Hasegawa-Johnson, Venugopal V. Veeravalli</p>
+                                <a href="https://arxiv.org/pdf/2606.07610" target="_blank" rel="noopener noreferrer">Paper</a>
+                                <p class="paper-card__venue">Conference on Empirical Methods in Natural Language Processing, 2026</p>
                             </div>
                         </article>
 
-                        <article class="projects__card">
-                            <div class="projects__image-container">
-                                <img src="assets/img/track-mdp.png" alt="" class="projects__img">
-                            </div>
-                            <div class="projects__info">
-                                <h3 class="projects__title">Track-MDP: Reinforcement Learning for Target Tracking with Controlled Sensing <span class="highlight-name">ICASSP, 2025</span></h3>
-                                <p class="projects__authors">Adarsh M. Subramaniam, <span class="highlight-name">Argyrios Gerogiannis,</span> James Z. Hare, Venugopal V. Veeravalli</p>
-                                <a href="https://ieeexplore.ieee.org/abstract/document/10890122" target="_blank" rel="noopener noreferrer" class="projects__button button button__small">
-                                    Paper <i class="ri-file-text-line"></i>
-                                </a>
+                        <article class="paper-card">
+                            <div class="paper-card__body">
+                                <div class="paper-card__topline">
+                                    <span>ICLR 2026</span>
+                                    <span>Reasoning</span>
+                                </div>
+                                <h3>Your Model Diversity, Not Method, Determines Reasoning Strategy</h3>
+                                <p class="paper-card__authors">M. Choraria, <b>A. Gerogiannis</b>, A. Das, S. Chakraborty, B. Kapusuzoglu, C.-H. Lee, K. Balasubramaniam, S.-X. Zhang, S. Sahu</p>
+                                <a href="https://openreview.net/forum?id=UyzumCYRE4" target="_blank" rel="noopener noreferrer">Paper</a>
+                                <p class="paper-card__venue">ICLR Workshop on Logical Reasoning of Large Language Models, 2026</p>
                             </div>
                         </article>
 
-                        <article class="projects__card">
-                            <div class="projects__image-container">
-                                <img src="assets/img/track-mdp-pp.png" alt="" class="projects__img">
-                            </div>
-                            <div class="projects__info">
-                                <h3 class="projects__title">Track-MDP++: RL for Target Tracking with General Controlled Sensing Models <span class="highlight-name">MILCOM, 2025, WS09</span></h3>
-                                <p class="projects__authors">Adarsh M. Subramaniam, <span class="highlight-name">Argyrios Gerogiannis,</span> James Z. Hare, Venugopal V. Veeravalli</p>
-                                <a href="https://milcom2025.ieee-milcom.org/workshop/ws09-5th-international-workshop-internet-things-adversarial-environments/program" target="_blank" rel="noopener noreferrer" class="projects__button button button__small">
-                                    Paper to appear soon<i class="ri-file-text-line"></i>
-                                </a>
+                        <article class="paper-card">
+                            <div class="paper-card__body">
+                                <div class="paper-card__topline">
+                                    <span>ICLR 2026</span>
+                                    <span>Associative memories</span>
+                                    <span class="paper-card__badge--oral">Oral</span>
+                                </div>
+                                <h3>Towards Context-Based Retrieval in Associative Memories</h3>
+                                <p class="paper-card__authors">Moulik Choraria*, <b>Argyrios Gerogiannis*</b>, Vidhata Jayaraman, Ankur Mani, Lav R. Varshney</p>
+                                <p class="paper-card__note">* Equal contribution.</p>
+                                <a href="https://openreview.net/forum?id=BuiIBO4Mmr" target="_blank" rel="noopener noreferrer">Paper</a>
+                                <p class="paper-card__venue">ICLR Workshop on New Frontiers in Associative Memories, 2026</p>
                             </div>
                         </article>
+
+                        <article class="paper-card">
+                            <div class="paper-card__body">
+                                <div class="paper-card__topline">
+                                    <span>CDC 2026</span>
+                                    <span>Controlled sensing</span>
+                                    <span class="paper-card__badge--oral">Oral</span>
+                                </div>
+                                <h3>Learning Where to Look: UCB-Driven Controlled Sensing for Quickest Change Detection</h3>
+                                <p class="paper-card__authors">Yu-Han Huang, <b>Argyrios Gerogiannis</b>, Subhonmesh Bose, Venugopal V. Veeravalli</p>
+                                <a href="https://arxiv.org/pdf/2603.28563" target="_blank" rel="noopener noreferrer">Paper</a>
+                                <p class="paper-card__venue">IEEE Conference on Decision and Control, 2026</p>
+                            </div>
+                        </article>
+
+                        <article class="paper-card">
+                            <div class="paper-card__body">
+                                <div class="paper-card__topline">
+                                    <span>TIT 2026</span>
+                                    <span>Bandits</span>
+                                </div>
+                                <h3>Detection Augmented Bandit Procedures for Piecewise Stationary MABs: A Modular Approach</h3>
+                                <p class="paper-card__authors">Yu-Han Huang, <b>Argyrios Gerogiannis</b>, Subhonmesh Bose, Venugopal V. Veeravalli</p>
+                                <a href="https://ieeexplore.ieee.org/abstract/document/11535571" target="_blank" rel="noopener noreferrer">Paper</a>
+                                <p class="paper-card__venue">IEEE Transactions on Information Theory, 2026</p>
+                            </div>
+                        </article>
+
+                        <article class="paper-card">
+                            <div class="paper-card__body">
+                                <div class="paper-card__topline">
+                                    <span>TSP 2026</span>
+                                    <span>RL application</span>
+                                </div>
+                                <h3>Track-MDP: Reinforcement Learning for Target Tracking with Controlled Sensing (Extended Version)</h3>
+                                <p class="paper-card__authors">Adarsh M. Subramaniam, <b>Argyrios Gerogiannis</b>, James Z. Hare, Venugopal V. Veeravalli</p>
+                                <a href="https://ieeexplore.ieee.org/document/11298488" target="_blank" rel="noopener noreferrer">Paper</a>
+                                <p class="paper-card__venue">IEEE Transactions on Signal Processing, 2026</p>
+                            </div>
+                        </article>
+
+                        <article class="paper-card">
+                            <div class="paper-card__body">
+                                <div class="paper-card__topline">
+                                    <span>AISTATS 2025</span>
+                                    <span>RL</span>
+                                </div>
+                                <h3>Is Prior-Free Black-Box Non-Stationary Reinforcement Learning Feasible?</h3>
+                                <p class="paper-card__authors"><b>Argyrios Gerogiannis</b>, Yu-Han Huang, Venugopal V. Veeravalli</p>
+                                <a href="https://proceedings.mlr.press/v258/gerogiannis25a.html" target="_blank" rel="noopener noreferrer">Paper</a>
+                                <p class="paper-card__venue">International Conference on Artificial Intelligence and Statistics, 2025</p>
+                            </div>
+                        </article>
+
+                        <article class="paper-card">
+                            <div class="paper-card__body">
+                                <div class="paper-card__topline">
+                                    <span>MILCOM 2025</span>
+                                    <span>RL application</span>
+                                </div>
+                                <h3>Track-MDP++: RL for Target Tracking with General Controlled Sensing Models</h3>
+                                <p class="paper-card__authors">Adarsh M. Subramaniam, <b>Argyrios Gerogiannis</b>, James Z. Hare, Venugopal V. Veeravalli</p>
+                                <a href="https://ieeexplore.ieee.org/abstract/document/11310279" target="_blank" rel="noopener noreferrer">Paper</a>
+                                <p class="paper-card__venue">IEEE Military Communications Conference, 2025</p>
+                            </div>
+                        </article>
+
+                        <article class="paper-card">
+                            <div class="paper-card__body">
+                                <div class="paper-card__topline">
+                                    <span>ICASSP 2025</span>
+                                    <span>RL application</span>
+                                </div>
+                                <h3>Track-MDP: Reinforcement Learning for Target Tracking with Controlled Sensing</h3>
+                                <p class="paper-card__authors">Adarsh M. Subramaniam, <b>Argyrios Gerogiannis</b>, James Z. Hare, Venugopal V. Veeravalli</p>
+                                <a href="https://ieeexplore.ieee.org/abstract/document/10890122" target="_blank" rel="noopener noreferrer">Paper</a>
+                                <p class="paper-card__venue">International Conference on Acoustics, Speech, and Signal Processing, 2025</p>
+                            </div>
+                        </article>
+
                     </div>
+                </div>
 
-                    <!--=============== SKILLS ===============-->
-                    <div class="skills__content grid" data-content id="skills">
-                        <div class="skills__area">
-                            <h3 class="skills__title">Research</h3>
-                            <p class="skills__text">I am a PhD candidate in the <b><a href="https://ece.illinois.edu/" target="_blank" rel="noopener noreferrer">Electrical and Computer Engineering</a></b> department at the <b><a href="https://illinois.edu/" target="_blank" rel="noopener noreferrer">University of Illinois Urbana-Champaign</a></b>, where I am advised by <b><a href="https://vvv.ece.illinois.edu/" target="_blank" rel="noopener noreferrer">Prof. Venugopal Veeravalli</a></b>. Before that, I graduated with a Diploma (BSc+MSc) in <b><a href="https://www.ece.upatras.gr/index.php/en/" target="_blank" rel="noopener noreferrer">Electrical and Computer Engineering</a></b> from the <b><a href="https://www.upatras.gr/en/" target="_blank" rel="noopener noreferrer">University of Patras</a></b>, at which I worked with <b><a href="http://www.ssp.ece.upatras.gr/moustakides/" target="_blank" rel="noopener noreferrer">Prof. George Moustakides</a></b>.</p>
-                            <p class="skills__text">My research interests broadly encompass machine learning, with a current focus on practical reinforcement learning and large language model reasoning. I have also worked on imitation learning, inverse reinforcement learning and autonomous driving.</p>
-                        </div>
+                <div class="paper-group">
+                    <h3>Manuscripts Under Review</h3>
+                    <div class="paper-list">
+
+                        <article class="paper-card">
+                            <div class="paper-card__body">
+                                <div class="paper-card__topline">
+                                    <span>Under Submission, 2026</span>
+                                    <span>Speech LLMs</span>
+                                </div>
+                                <h3>SALSA: Speech Aware LLM Adaptation via Learned Steering Activation Vectors</h3>
+                                <p class="paper-card__authors">Yekaterina Yegorova, <b>Argyrios Gerogiannis</b>, Haolong Zheng, Julia Hockenmaier, Chang D. Yoo, Mark Hasegawa-Johnson</p>
+                                <a href="https://arxiv.org/pdf/2606.00460" target="_blank" rel="noopener noreferrer">Paper</a>
+                                <p class="paper-card__venue">Under Submission, 2026</p>
+                            </div>
+                        </article>
+
+                        <article class="paper-card">
+                            <div class="paper-card__body">
+                                <div class="paper-card__topline">
+                                    <span>Under Submission, 2026</span>
+                                    <span>Reasoning</span>
+                                </div>
+                                <h3>Know Thy Reasoner: Not All Language Models Explore Alike</h3>
+                                <p class="paper-card__authors">Moulik Choraria, <b>Argyrios Gerogiannis</b>, Anirban Das, Supriyo Chakraborty, Sourya Basu, Sambit Sahu, Lav R. Varshney</p>
+                                <a href="https://arxiv.org/pdf/2604.10827" target="_blank" rel="noopener noreferrer">Paper</a>
+                                <p class="paper-card__venue">Under Submission, 2026</p>
+                            </div>
+                        </article>
+
+                        <article class="paper-card">
+                            <div class="paper-card__body">
+                                <div class="paper-card__topline">
+                                    <span>Under Submission, 2026</span>
+                                    <span>Transformers</span>
+                                </div>
+                                <h3>Context-Gated Associative Retrieval: From Theory to Transformers</h3>
+                                <p class="paper-card__authors">Moulik Choraria*, <b>Argyrios Gerogiannis*</b>, Vidhata Jayaraman, Ankur Mani, Lav R. Varshney</p>
+                                <p class="paper-card__note">* Equal contribution.</p>
+                                <a href="https://arxiv.org/pdf/2605.10970" target="_blank" rel="noopener noreferrer">Paper</a>
+                                <p class="paper-card__venue">Under Submission, 2026</p>
+                            </div>
+                        </article>
+
+                        <article class="paper-card">
+                            <div class="paper-card__body">
+                                <div class="paper-card__topline">
+                                    <span>Under Submission, 2026</span>
+                                    <span>RL</span>
+                                </div>
+                                <h3>DARLING: Detection Augmented Reinforcement Learning with Non-Stationary Guarantees</h3>
+                                <p class="paper-card__authors"><b>Argyrios Gerogiannis</b>, Yu-Han Huang, Venugopal V. Veeravalli</p>
+                                <a href="https://arxiv.org/pdf/2604.16684" target="_blank" rel="noopener noreferrer">Paper</a>
+                                <p class="paper-card__venue">Under Submission, 2026</p>
+                            </div>
+                        </article>
                     </div>
                 </div>
             </section>
+
         </main>
 
         <!--=============== FOOTER ===============-->
         <footer class="footer container">
             <span class="footer__copy">
-                &#169; Argyrios Gerogiannis. All rigths reserved
+                &#169; Argyrios Gerogiannis. All rights reserved
             </span>
         </footer>
-
-        <!--=============== SCROLLREVEAL ===============-->
-        <script src="assets/js/scrollreveal.min.js" onerror="console.error('ScrollReveal failed to load')"></script>
 
         <!--=============== MAIN JS ===============-->
         <script src="assets/js/main.js" onerror="console.error('Main JS failed to load')"></script>
