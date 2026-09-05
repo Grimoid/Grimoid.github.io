@@ -240,7 +240,16 @@ html:not(.dark-theme) .neural-field {
   display: none;
   align-items: center;
   gap: .15rem;
-  margin-left: auto;
+}
+
+.site-nav__divider {
+  display: none;
+  width: 2px;
+  height: 1.15rem;
+  flex: 0 0 2px;
+  margin: 0 .35rem;
+  border-radius: 999px;
+  background-color: var(--title);
 }
 
 .site-nav__links a {
@@ -250,7 +259,8 @@ html:not(.dark-theme) .neural-field {
   font-family: var(--font);
   font-size: .94rem;
   font-weight: 800;
-  letter-spacing: .02em;
+  letter-spacing: .045em;
+  text-transform: uppercase;
 }
 
 .site-nav__links a:hover {
@@ -807,12 +817,16 @@ html.dark-theme .paper-card .paper-card__venue {
 }
 
 @media screen and (min-width: 680px) {
+  .site-nav__divider {
+    display: block;
+  }
+
   .site-nav__links {
     display: flex;
   }
 
   .change-theme {
-    margin-left: .25rem;
+    margin-left: auto;
   }
 
   .work-grid,
