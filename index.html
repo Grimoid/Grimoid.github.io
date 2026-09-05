@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="Argyrios Gerogiannis is a PhD candidate in ECE at UIUC working on reinforcement learning, LLM and multimodal reasoning, and post-training methods.">
-        <meta name="theme-color" content="#101722">
+        <meta name="theme-color" content="#fcfaf5">
         <meta property="og:title" content="Argyrios Gerogiannis">
         <meta property="og:description" content="PhD candidate in ECE at UIUC. Work in reinforcement learning, LLM and multimodal reasoning, and post-training methods.">
         <meta property="og:type" content="website">
@@ -43,7 +43,7 @@
             
             /* Ensure root html always covers full viewport */
             html {
-                background-color: hsl(218, 24%, 8%); /* Default to dark */
+                background-color: hsl(42, 35%, 98%); /* Default to light */
             }
             
             html:not(.dark-theme) {
@@ -57,7 +57,7 @@
                 left: 0;
                 width: 100%;
                 height: 100%;
-                background-color: hsl(218, 24%, 8%); /* Default dark */
+                background-color: hsl(42, 35%, 98%); /* Default light */
                 z-index: 9999;
                 opacity: 1;
                 transition: opacity 0.8s ease-out;
@@ -79,7 +79,7 @@
             // document.body does not exist yet here.
             (function() {
                 const savedTheme = localStorage.getItem('selected-theme');
-                const theme = savedTheme === 'light' ? 'light' : 'dark';
+                const theme = savedTheme === 'dark' ? 'dark' : 'light';
                 
                 document.documentElement.classList.toggle('dark-theme', theme === 'dark');
                 document.documentElement.dataset.theme = theme;
@@ -119,8 +119,8 @@
                     <a href="assets/pdf/argy-CV.pdf" target="_blank" rel="noopener noreferrer">CV</a>
                     <a href="mailto:argyrger@gmail.com">Contact</a>
                 </div>
-                <button class="change-theme" id="theme-button" type="button" aria-label="Switch to light theme">
-                    <i class="ri-sun-line" aria-hidden="true"></i>
+                <button class="change-theme" id="theme-button" type="button" aria-label="Switch to dark theme">
+                    <i class="ri-moon-line" aria-hidden="true"></i>
                 </button>
             </nav>
 
@@ -270,7 +270,7 @@
                             <div class="paper-card__body">
                                 <div class="paper-card__topline">
                                     <span>TSP 2026</span>
-                                    <span>RL application</span>
+                                    <span>Reinforcement Learning</span>
                                 </div>
                                 <h3>Track-MDP: Reinforcement Learning for Target Tracking with Controlled Sensing (Extended Version)</h3>
                                 <p class="paper-card__authors">Adarsh M. Subramaniam, <b>Argyrios Gerogiannis</b>, James Z. Hare, Venugopal V. Veeravalli</p>
@@ -283,7 +283,7 @@
                             <div class="paper-card__body">
                                 <div class="paper-card__topline">
                                     <span>AISTATS 2025</span>
-                                    <span>RL</span>
+                                    <span>Reinforcement Learning</span>
                                 </div>
                                 <h3>Is Prior-Free Black-Box Non-Stationary Reinforcement Learning Feasible?</h3>
                                 <p class="paper-card__authors"><b>Argyrios Gerogiannis</b>, Yu-Han Huang, Venugopal V. Veeravalli</p>
@@ -296,7 +296,7 @@
                             <div class="paper-card__body">
                                 <div class="paper-card__topline">
                                     <span>MILCOM 2025</span>
-                                    <span>RL application</span>
+                                    <span>Reinforcement Learning</span>
                                 </div>
                                 <h3>Track-MDP++: RL for Target Tracking with General Controlled Sensing Models</h3>
                                 <p class="paper-card__authors">Adarsh M. Subramaniam, <b>Argyrios Gerogiannis</b>, James Z. Hare, Venugopal V. Veeravalli</p>
@@ -309,7 +309,7 @@
                             <div class="paper-card__body">
                                 <div class="paper-card__topline">
                                     <span>ICASSP 2025</span>
-                                    <span>RL application</span>
+                                    <span>Reinforcement Learning</span>
                                 </div>
                                 <h3>Track-MDP: Reinforcement Learning for Target Tracking with Controlled Sensing</h3>
                                 <p class="paper-card__authors">Adarsh M. Subramaniam, <b>Argyrios Gerogiannis</b>, James Z. Hare, Venugopal V. Veeravalli</p>
@@ -324,12 +324,39 @@
                 <div class="paper-group">
                     <h3>Manuscripts Under Review</h3>
                     <div class="paper-list">
+                        <article class="paper-card">
+                            <div class="paper-card__body">
+                                <div class="paper-card__topline">
+                                    <span>Under Submission, 2026</span>
+                                    <span>Reinforcement Learning</span>
+                                </div>
+                                <h3>DARLING: Detection Augmented Reinforcement Learning with Non-Stationary Guarantees</h3>
+                                <p class="paper-card__authors"><b>Argyrios Gerogiannis</b>, Yu-Han Huang, Venugopal V. Veeravalli</p>
+                                <a href="https://arxiv.org/pdf/2604.16684" target="_blank" rel="noopener noreferrer">Paper</a>
+                                <p class="paper-card__venue">Under Submission, 2026</p>
+                            </div>
+                        </article>
 
                         <article class="paper-card">
                             <div class="paper-card__body">
                                 <div class="paper-card__topline">
                                     <span>Under Submission, 2026</span>
-                                    <span>Speech LLMs</span>
+                                    <span>Transformers</span>
+                                </div>
+                                <h3>Context-Gated Associative Retrieval: From Theory to Transformers</h3>
+                                <p class="paper-card__authors">Moulik Choraria*, <b>Argyrios Gerogiannis*</b>, Vidhata Jayaraman, Ankur Mani, Lav R. Varshney</p>
+                                <p class="paper-card__note">* Equal contribution.</p>
+                                <a href="https://arxiv.org/pdf/2605.10970" target="_blank" rel="noopener noreferrer">Paper</a>
+                                <p class="paper-card__venue">Under Submission, 2026</p>
+                            </div>
+                        </article>
+
+
+                        <article class="paper-card">
+                            <div class="paper-card__body">
+                                <div class="paper-card__topline">
+                                    <span>Under Submission, 2026</span>
+                                    <span>Multimodal LLMs</span>
                                 </div>
                                 <h3>SALSA: Speech Aware LLM Adaptation via Learned Steering Activation Vectors</h3>
                                 <p class="paper-card__authors">Yekaterina Yegorova, <b>Argyrios Gerogiannis</b>, Haolong Zheng, Julia Hockenmaier, Chang D. Yoo, Mark Hasegawa-Johnson</p>
@@ -351,32 +378,6 @@
                             </div>
                         </article>
 
-                        <article class="paper-card">
-                            <div class="paper-card__body">
-                                <div class="paper-card__topline">
-                                    <span>Under Submission, 2026</span>
-                                    <span>Transformers</span>
-                                </div>
-                                <h3>Context-Gated Associative Retrieval: From Theory to Transformers</h3>
-                                <p class="paper-card__authors">Moulik Choraria*, <b>Argyrios Gerogiannis*</b>, Vidhata Jayaraman, Ankur Mani, Lav R. Varshney</p>
-                                <p class="paper-card__note">* Equal contribution.</p>
-                                <a href="https://arxiv.org/pdf/2605.10970" target="_blank" rel="noopener noreferrer">Paper</a>
-                                <p class="paper-card__venue">Under Submission, 2026</p>
-                            </div>
-                        </article>
-
-                        <article class="paper-card">
-                            <div class="paper-card__body">
-                                <div class="paper-card__topline">
-                                    <span>Under Submission, 2026</span>
-                                    <span>RL</span>
-                                </div>
-                                <h3>DARLING: Detection Augmented Reinforcement Learning with Non-Stationary Guarantees</h3>
-                                <p class="paper-card__authors"><b>Argyrios Gerogiannis</b>, Yu-Han Huang, Venugopal V. Veeravalli</p>
-                                <a href="https://arxiv.org/pdf/2604.16684" target="_blank" rel="noopener noreferrer">Paper</a>
-                                <p class="paper-card__venue">Under Submission, 2026</p>
-                            </div>
-                        </article>
                     </div>
                 </div>
             </section>

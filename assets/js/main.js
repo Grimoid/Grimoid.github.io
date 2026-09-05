@@ -34,7 +34,7 @@ const applyTheme = (theme, persist = false) => {
     }
 };
 
-applyTheme(getStoredTheme() === 'light' ? 'light' : 'dark');
+applyTheme(getStoredTheme() === 'dark' ? 'dark' : 'light');
 
 themeButton?.addEventListener('click', () => {
     applyTheme(getCurrentTheme() === 'dark' ? 'light' : 'dark', true);
