@@ -246,14 +246,16 @@ html:not(.dark-theme) .neural-field {
 .site-nav__links a {
   padding: .55rem .75rem;
   border-radius: .45rem;
-  color: var(--text);
-  font-size: var(--small);
-  font-weight: 700;
+  color: var(--title);
+  font-family: var(--font);
+  font-size: .94rem;
+  font-weight: 800;
+  letter-spacing: .02em;
 }
 
 .site-nav__links a:hover {
   background-color: var(--panel-soft);
-  color: var(--title);
+  color: var(--accent);
 }
 
 .change-theme {
@@ -334,15 +336,17 @@ html.dark-theme .hero h1 {
 }
 
 .hero__background a {
-  color: var(--title);
-  text-decoration: underline;
-  text-decoration-color: hsla(24, 78%, 52%, .48);
-  text-underline-offset: .18em;
+  color: hsl(24, 78%, 42%);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+html.dark-theme .hero__background a {
+  color: hsl(24, 88%, 68%);
 }
 
 .hero__background a:hover {
   color: var(--accent);
-  text-decoration-color: var(--accent);
 }
 
 html.dark-theme .hero__summary,
@@ -658,6 +662,18 @@ html.dark-theme .background-grid article {
   border-radius: 999px;
   background-color: hsla(24, 78%, 52%, .08);
   line-height: 1.3;
+}
+
+.paper-card__topline span:first-child {
+  border-color: hsla(198, 72%, 44%, .38);
+  background-color: hsla(198, 72%, 44%, .11);
+  color: hsl(198, 72%, 34%);
+}
+
+html.dark-theme .paper-card__topline span:first-child {
+  border-color: hsla(194, 82%, 66%, .4);
+  background-color: hsla(194, 82%, 66%, .12);
+  color: hsl(194, 82%, 72%);
 }
 
 .paper-card__topline .paper-card__badge--oral {
