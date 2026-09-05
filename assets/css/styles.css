@@ -201,7 +201,7 @@ html:not(.dark-theme) .neural-field {
 }
 
 .site-nav.is-expanded .site-nav__mark {
-  width: 14rem;
+  width: 13.15rem;
 }
 
 .site-nav__initials,
@@ -247,7 +247,6 @@ html:not(.dark-theme) .neural-field {
   width: 2px;
   height: 1.15rem;
   flex: 0 0 2px;
-  margin: 0 .35rem;
   border-radius: 999px;
   background-color: var(--title);
 }
